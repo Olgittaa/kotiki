@@ -1,0 +1,122 @@
+/*Base styling*/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Abel", sans-serif;
+  font-weight: 200;
+}
+
+#home {
+  font-size: 2.7rem;
+  font-family: "Pattaya", sans-serif;
+  font-weight: normal;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+li {
+  font-size: 1.5rem;
+  list-style: none;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  cursor: pointer;
+  color: black;
+  font-size: 2rem;
+  font-weight: bold;
+  background-color: white;
+  border: none;
+  border-radius: 3rem;
+  margin: 1rem;
+  padding: 1.5rem 5.3rem;
+}
+
+.inverse-button {
+  color: white;
+  background: rgba(0, 0, 0, 0.3);
+  border: 0.25rem solid white;
+  padding: 1.25rem 8rem;
+}
+
+/*NAV section styling*/
+#main-header {
+  background-color: rgb(0, 0, 0);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: auto;
+  min-height: 10vh;
+  color: white;
+}
+
+#logo-container {
+  display: flex;
+  align-items: center;
+  flex: 3 1 40rem;
+}
+
+nav ul {
+  display: flex;
+  flex: 1 1 40rem;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+nav a {
+  color: white;
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/*INTRO section styling*/
+#intro {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.8),
+      transparent
+    ),
+    url(../IMG/intro_background.png);
+  background-position: center;
+  background-size: cover;
+}
+
+#intro h2 {
+  font-size: 4.5rem;
+  color: white;
+  margin: 1.5rem;
+}
+
+#intro h3 {
+  font-size: 2.5rem;
+  color: white;
+  text-align: center;
+  margin: 1rem;
+}
