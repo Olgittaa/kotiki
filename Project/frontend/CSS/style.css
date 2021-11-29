@@ -59,7 +59,7 @@ button {
 
 /*======================NAV section styling=====================================*/
 #main-header {
-  top: 0%;
+  top: 0;
   position: sticky;
   z-index: 100;
 }
@@ -117,7 +117,7 @@ nav a:hover {
       rgba(0, 0, 0, 0.8),
       transparent
     ),
-    url(/frontend/IMG/intro_background.png);
+    url(../IMG/intro_background.png);
   background-position: center;
   background-size: cover;
 }
@@ -222,10 +222,10 @@ nav a:hover {
 .purchase {
   font-size: 1.7rem;
   font-weight: bold;
-  background-color: none;
+  background-color: transparent;
   padding: 0.5rem 4.5rem;
   border: 0.2rem solid black;
-  margin: 1.5rem 0rem;
+  margin: 1.5rem 0;
 }
 
 .purchase:hover {
@@ -244,7 +244,7 @@ nav a:hover {
   overflow: hidden;
 }
 
-#philosofy-header {
+#philosophy-header {
   min-height: 10vh;
   background-color: rgb(36, 35, 35);
   color: white;
@@ -316,8 +316,7 @@ nav a:hover {
 
 .dots-container {
   align-items: center;
-  margin: 1rem auto;
-  margin-bottom: 2rem;
+  margin: 1rem auto 2rem;
 }
 
 .dot {
@@ -372,7 +371,7 @@ footer h2 {
 }
 
 .contact-container,
-.socila-media {
+.social-media {
   width: 80%;
   margin: 1rem auto;
   display: flex;
@@ -380,7 +379,7 @@ footer h2 {
   align-items: center;
 }
 
-.socila-media {
+.social-media {
   width: 30%;
   justify-content: space-evenly;
 }
@@ -416,7 +415,7 @@ footer h2 {
   .card-container {
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: auto;
+    padding: 0;
   }
 }
 

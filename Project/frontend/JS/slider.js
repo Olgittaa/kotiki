@@ -12,7 +12,7 @@ function changeDotStyle(idx, dots) {
   for (let i = 0; i < dots.length; i++) {
     if (i === idx) {
       dots[i].className += " active";
-    } else if (dots[i].className != "dot") {
+    } else if (dots[i].className !== "dot") {
       dots[i].className = "dot";
     }
   }
