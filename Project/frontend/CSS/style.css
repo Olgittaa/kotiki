@@ -153,14 +153,35 @@ nav a:hover {
   justify-content: center;
 }
 
-#models-header h2 {
+#all-configurations {
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2rem;
+  margin-top: 3rem;
+}
+
+.active-triangle {
+  color: rgba(216, 73, 245, 0.5);
+}
+
+.triangle {
+  color: white;
+}
+
+#all-configurations:hover .triangle {
+  color: rgba(8, 83, 156, 0.5);
+  transition: 0.3s ease-in-out;
+}
+
+.header-text h2 {
   color: rgb(0, 0, 0);
   font-weight: bold;
   font-size: 2.7rem;
   margin-bottom: 1rem;
 }
 
-#models-header h3 {
+.header-text h3 {
   font-size: 1.8rem;
 }
 
@@ -182,7 +203,7 @@ nav a:hover {
 
 .card:hover {
   transition: 0.2s ease-in-out;
-  box-shadow: 0 18px 20px rgba(70, 49, 49, 0.55);
+  box-shadow: 0 18px 20px rgba(70, 49, 49, 0.575);
 }
 
 .computer {
@@ -194,6 +215,11 @@ nav a:hover {
 
 .computer img {
   width: 15rem;
+}
+
+#pc2,
+#pc4 {
+  width: 17rem;
 }
 
 .circle {
