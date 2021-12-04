@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.8)),
-    url(../IMG/intro_background.png);
+  url(../IMG/intro_background.png);
   background-position: center;
   background-size: cover;
 }
@@ -20,7 +20,19 @@
   min-height: 80vh;
   background-color: white;
   border-radius: 3rem;
+  font-size: 25pt;
+
 }
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
 
 #reg-message-info {
   font-size: 3.5rem;
