@@ -23,14 +23,10 @@
 
 .accessories {
   display:  inline-grid;
-  position: flex;
   width: 100%;
   max-width: 650px;
   height: auto;
-
   border: 2px solid #7d7d7d;
-  overflow: hiden;
-
 }
 .btn {
      display: inline-flex;
@@ -51,13 +47,10 @@
       position: fixed;
       top: 15%;
       width: 100%;
-
-
-      overflow: hiden;
   }
   .progressbar {
       counter-reset: step;
-      color: (0 0 0 0.8);
+      color: rgba(0 0 0 0.8);
   }
   .progressbar li {
       list-style-type: none;
@@ -103,7 +96,7 @@
       border-color: #55b776;
   }
   .progressbar li.step.active + li:after {
-      background-color: #(0 0 0 0.8);
+      background-color: rgba(0 0 0 0.8);
   }
   .progress-bar {
     position: relative;
