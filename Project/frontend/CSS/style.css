@@ -177,18 +177,18 @@ nav a:hover {
 .header-text h2 {
   color: rgb(0, 0, 0);
   font-weight: bold;
-  font-size: 2.7rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 
 .header-text h3 {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .card-container {
   display: flex;
   margin-bottom: 5rem;
-  min-height: 75vh;
+  min-height: 60vh;
   min-width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -305,7 +305,13 @@ nav a:hover {
   border: none;
 }
 
-.slide-content img {
+.slide-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-image img {
   max-width: 70rem;
 }
 
@@ -455,7 +461,11 @@ footer h2 {
     padding: 2rem;
   }
 
-  .slide-content img {
+  .slide-text {
+    min-height: 40vh;
+  }
+
+  .slide-image {
     max-width: 60rem;
   }
 }
@@ -529,5 +539,12 @@ footer h2 {
 
   .slide-article {
     font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 285px) {
+  #prev,
+  #next {
+    transform: translate(0, 60%);
   }
 }
