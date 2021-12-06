@@ -367,7 +367,7 @@ nav a:hover {
 .dot:hover,
 .active {
   transition: 0.2s ease-in-out;
-  background-color: black;
+  background-color: (white);
 }
 
 /*======================FOOTER section styling==========================================*/
