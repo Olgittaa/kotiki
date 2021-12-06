@@ -59,7 +59,7 @@ button {
 
 /*======================NAV section styling=====================================*/
 #main-header {
-  top: 0%;
+  top: 0;
   position: sticky;
   z-index: 100;
 }
@@ -153,21 +153,42 @@ nav a:hover {
   justify-content: center;
 }
 
-#models-header h2 {
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-  font-size: 2.7rem;
-  margin-bottom: 1rem;
+#all-configurations {
+  font-weight: 600;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2rem;
+  margin-top: 3rem;
 }
 
-#models-header h3 {
-  font-size: 1.8rem;
+.active-triangle {
+  color: rgba(216, 73, 245, 0.5);
+}
+
+.triangle {
+  color: white;
+}
+
+#all-configurations:hover .triangle {
+  color: rgba(8, 83, 156, 0.5);
+  transition: 0.3s ease-in-out;
+}
+
+.header-text h2 {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.header-text h3 {
+  font-size: 2rem;
 }
 
 .card-container {
   display: flex;
   margin-bottom: 5rem;
-  min-height: 75vh;
+  min-height: 60vh;
   min-width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -182,7 +203,7 @@ nav a:hover {
 
 .card:hover {
   transition: 0.2s ease-in-out;
-  box-shadow: 0 18px 20px rgba(70, 49, 49, 0.55);
+  box-shadow: 0 18px 20px rgba(70, 49, 49, 0.575);
 }
 
 .computer {
@@ -194,6 +215,11 @@ nav a:hover {
 
 .computer img {
   width: 15rem;
+}
+
+#pc2,
+#pc4 {
+  width: 17rem;
 }
 
 .circle {
@@ -222,10 +248,10 @@ nav a:hover {
 .purchase {
   font-size: 1.7rem;
   font-weight: bold;
-  background-color: none;
+  background-color: transparent;
   padding: 0.5rem 4.5rem;
   border: 0.2rem solid black;
-  margin: 1.5rem 0rem;
+  margin: 1.5rem 0;
 }
 
 .purchase:hover {
@@ -244,7 +270,7 @@ nav a:hover {
   overflow: hidden;
 }
 
-#philosofy-header {
+#philosophy-header {
   min-height: 10vh;
   background-color: rgb(36, 35, 35);
   color: white;
@@ -271,18 +297,27 @@ nav a:hover {
 
 .slide-content {
   width: 90%;
+  min-height: 90vh;
   margin: auto;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   border: none;
 }
 
-.slide-content img {
+.slide-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-image img {
   max-width: 70rem;
 }
 
 .slide-text {
   width: 50%;
+  max-height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -291,7 +326,7 @@ nav a:hover {
 
 .slide-header {
   font-size: 2rem;
-  margin: 2rem;
+  margin: 2rem 0;
 }
 
 .slide-article {
@@ -316,8 +351,7 @@ nav a:hover {
 
 .dots-container {
   align-items: center;
-  margin: 1rem auto;
-  margin-bottom: 2rem;
+  margin: 1rem auto 2rem;
 }
 
 .dot {
@@ -333,7 +367,7 @@ nav a:hover {
 .dot:hover,
 .active {
   transition: 0.2s ease-in-out;
-  background-color: (0 0 0 0.8);
+  background-color: (white);
 }
 
 /*======================FOOTER section styling==========================================*/
@@ -372,7 +406,7 @@ footer h2 {
 }
 
 .contact-container,
-.socila-media {
+.social-media {
   width: 80%;
   margin: 1rem auto;
   display: flex;
@@ -380,7 +414,7 @@ footer h2 {
   align-items: center;
 }
 
-.socila-media {
+.social-media {
   width: 30%;
   justify-content: space-evenly;
 }
@@ -416,7 +450,7 @@ footer h2 {
   .card-container {
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: auto;
+    padding: 0;
   }
 }
 
@@ -426,7 +460,11 @@ footer h2 {
     padding: 2rem;
   }
 
-  .slide-content img {
+  .slide-text {
+    min-height: 40vh;
+  }
+
+  .slide-image {
     max-width: 60rem;
   }
 }
@@ -450,6 +488,9 @@ footer h2 {
   .info-label,
   .info-text {
     margin: 0.5rem 2rem;
+  }
+  .slide-text {
+    width: 70%;
   }
 }
 
@@ -478,6 +519,9 @@ footer h2 {
   html {
     font-size: 45%;
   }
+  .slide-content {
+    margin-top: 3rem;
+  }
 }
 
 @media screen and (max-width: 361px) {
@@ -492,11 +536,14 @@ footer h2 {
     justify-content: center;
   }
 
-.container2 {
-  padding: 16px;
-  border: 3px solid #f1f1f1;
-  font-size: 15pt;
-
+  .slide-article {
+    font-size: 2rem;
+  }
 }
 
+@media screen and (max-width: 285px) {
+  #prev,
+  #next {
+    transform: translate(0, 60%);
+  }
 }

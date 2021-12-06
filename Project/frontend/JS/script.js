@@ -21,6 +21,9 @@ progressPrev.addEventListener("click", () => {
 });
 
 const updateProgress = () => {
+  fillTable(active - 1);
+  document.getElementById("body").remove();
+
   steps.forEach((step, i) => {
     if (i < active) {
       step.classList.add("active");
@@ -28,7 +31,7 @@ const updateProgress = () => {
       step.classList.remove("active");
     }
   });
-  progressBar.style.width = ((active - 1) / (steps.length - 1)) * 100 + "%";
+  progressBar.style.width = ((active - 1) / (steps.length - 1)) ;
   if (active === 1) {
     progressPrev.disabled = true;
   } else if (active === steps.length) {
