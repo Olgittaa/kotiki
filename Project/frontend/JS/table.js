@@ -106,7 +106,7 @@ function fillTable(i) {
         }
         table += `<td><img width="75px" height="75px" src="../IMG/${key}/${data[i].name}.jpeg" alt=""></td>
                   <td>${data[i].name}
-                  <button onclick="showHideRow('hidden_row${i}');">i</button>
+                  <button class="info-button"  onclick="showHideRow('hidden_row${i}');">i</button>
                   </td>
                   <td>${data[i].rating}</td>
                   <td>€ ${data[i].price}</td>

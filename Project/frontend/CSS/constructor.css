@@ -7,34 +7,32 @@
   float:left;
 }
 
-.pc2d {
-  display: flex;
-  position: relative;
-  width: 100%;
-  max-width: 450px;
-  height: auto;
-  overflow: auto;
-  border: 2px solid #7d7d7d;
-  }
+#pc2d {
+    display: flex;
+    position: center;
+    width: 45rem;
+    height: auto;
+    overflow: auto;
+}
 
 .accessories {
-  display:  inline-grid;
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  border: 2px solid #7d7d7d;
-  margin-left: 100px;
-}
-.accessories {
-    position: flex;
+    display: inline-grid;
+    height: auto;
     top: 34%;
     max-width: 700px;
     width: 800px;
     max-height: 500px;
     left: 700px;
     line-height: 30px;
-    border: 2px solid #7d7d7d;
     overflow: auto;
+    margin-left: 100px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    border-radius: 1rem;
+}
+
+.accessories:hover {
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 0 20px rgba(70, 49, 49, 0.575);
 }
 
 .btn {
@@ -44,7 +42,7 @@
     flex: 20px;
     top: 87%;
     width: 300px;
-    right:30%;
+    right: 30%;
     border-radius: 400px;
     border: 3px solid #f1f1f1;
     padding: 1rem;
@@ -54,68 +52,23 @@
     background-color: white;
 }
 
-.container {
-      display: block;
-      position: fixed;
-      top: 15%;
-      width: 100%;
-  }
-  .progressbar {
-      counter-reset: step;
-      color: rgba(0 0 0 0.8);
-  }
-  .progressbar li {
-      list-style-type: none;
-      width: 12%;
-      float: left;
-      font-size: 17px;
-      position: relative;
-      text-align: center;
-      text-transform: uppercase;
-      color: #7d7d7d;
 
-  }
-  .progressbar li:before {
-      width: 30px;
-      height: 30px;
-      content: counter(step);
-      counter-increment: step;
-      line-height: 30px;
-      border: 3px solid #7d7d7d;
-      display: block;
-      text-align: center;
-      margin: 0 auto 10px auto;
-      border-radius: 50%;
-      background-color: white;
-  }
-  .progressbar li:after {
-      width: 100%;
-      height: 5px;
-      content: '';
-      position: absolute;
-      background-color: #7d7d7d;
-      top: 15px;
-      left: -50%;
-      z-index: -1;
-  }
-  .progressbar li:first-child:after {
-      content: none;
-  }
-  .progressbar li.step.active {
-      color: green;
-  }
-  .progressbar li.step.active:before {
-      border-color: #55b776;
-  }
-  .progressbar li.step.active + li:after {
-      background-color: rgba(0 0 0 0.8);
-  }
-  .progress-bar {
-    display: flex;
+.container {
+    display: block;
     position: fixed;
-    left: 40rem;
+    top: 15%;
+    width: 100%;
+}
+
+.progress-bar-ul {
+    counter-reset: step;
+    color: rgba(0 0 0 0.8);
+}
+
+.progress-bar {
+    display: inline;
+    margin-left: 40rem;
     padding: 2rem;
-    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -124,7 +77,56 @@
     min-height: 10vh;
     background-color: white;
     border-radius: 2rem;
-  }
+}
+
+.progress-bar-ul li {
+    list-style-type: none;
+    width: 12%;
+    float: left;
+    font-size: 1.5rem;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.progress-bar-ul li:before {
+    width: 3rem;
+    height: 3rem;
+    content: counter(step);
+    counter-increment: step;
+    line-height: 3rem;
+    border: 2px solid #000000;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.progress-bar-ul li:after {
+    width: 100%;
+    height: 2px;
+    content: '';
+    position: absolute;
+    background-color: #000000;
+    top: 1.5rem;
+    left: -50%;
+    z-index: -1;
+}
+
+.progress-bar-ul li:first-child:after {
+    content: none;
+}
+
+.step.active {
+    transition: 0.2s ease-in-out;
+    background-color: transparent;
+}
+
+.progress-bar-ul li.step.active:before {
+    border-color: rgba(8, 83, 156, 0.5);
+}
 
 
 #myInput {
@@ -186,7 +188,7 @@
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -220,10 +222,6 @@
     font-size: 15px;
 }
 
-.active, .collapsible:hover {
-    background-color: (0 0 0 0.8);
-}
-
 .collapsible:after {
     content: '\002B';
     color: white;
@@ -232,6 +230,11 @@
     margin-left: 5px;
 }
 
-.active:after {
-    content: "\2212";
+.info-button {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: #dddddd;
+    margin: 1rem;
+    font-size: 65%;
 }
