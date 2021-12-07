@@ -20,8 +20,19 @@ progressPrev.addEventListener("click", () => {
   updateProgress();
 });
 
+function changePicture(active) {
+  if (active === 8) {
+    document.getElementById("pc2d").src = "../IMG/2d/PC-block.png"
+  } else {
+    document.getElementById("pc2d").src = "../IMG/2d/block_with_" +
+        progressValues[active - 1].toLowerCase().replace(' ', '') + ".png"
+  }
+}
+
 const updateProgress = () => {
   fillTable(active - 1);
+  changePicture(active);
+
   document.getElementById("body").remove();
 
   steps.forEach((step, i) => {
@@ -31,7 +42,7 @@ const updateProgress = () => {
       step.classList.remove("active");
     }
   });
-  progressBar.style.width = ((active - 1) / (steps.length - 1)) * 100 + "%";
+  progressBar.style.width = ((active - 1) / (steps.length - 1));
   if (active === 1) {
     progressPrev.disabled = true;
   } else if (active === steps.length) {
@@ -41,3 +52,6 @@ const updateProgress = () => {
     progressNext.disabled = false;
   }
 };
+
+let progressValues = [
+  "Video card", "Processor", "Motherboard", "Memory", "SSD", "HDD", "Power", "Design"]
