@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.8)),
-    url(../IMG/intro_background.png);
+  url(../IMG/intro_background.png);
   background-position: center;
   background-size: cover;
 }
@@ -67,23 +67,22 @@
 }
 :root {
 
-    --input-color: #a003a7;
-    --input-border: #a003a7;
-    --input-background: #fff;
-    --input-placeholder: #CBD1DC;
+  --input-color: #a003a7;
+  --input-border: #a003a7;
+  --input-background: #fff;
+  --input-placeholder: #CBD1DC;
 
-    --input-border-focus: #275EFE;
+  --input-border-focus: #275EFE;
 
-    --group-color: var(--input-color);
-    --group-border: var(--input-border);
-    --group-background: #EEF4FF;
+  --group-color: var(--input-color);
+  --group-border: var(--input-border);
+  --group-background: #EEF4FF;
 
   --group-color-focus: #fff;
   --group-border-focus: var(--input-border-focus);
   --group-background-focus: #678EFE;
 
 }
-
 .container2 {
   display: inline-block;
   position: relative;
@@ -99,17 +98,13 @@
   border: 3px solid var(--input-border);
   background: var(--input-background);
   transition: border .3s ease;
-}
-
-.container2::placeholder {
-  color: var(--input-placeholder);
-}
-
-.container2:focus {
-  outline: none;
-  border-color: var(--input-border-focus);
-}
-
+&::placeholder {
+   color: var(--input-placeholder);
+ }
+&:focus {
+   outline: none;
+   border-color: var(--input-border-focus);
+ }
 .order-container {
   position: relative;
   width: 100%;
