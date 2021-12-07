@@ -78,33 +78,38 @@
     --group-border: var(--input-border);
     --group-background: #EEF4FF;
 
-    --group-color-focus: #fff;
-    --group-border-focus: var(--input-border-focus);
-    --group-background-focus: #678EFE;
+  --group-color-focus: #fff;
+  --group-border-focus: var(--input-border-focus);
+  --group-background-focus: #678EFE;
 
 }
+
 .container2 {
   display: inline-block;
-    position: relative;
-    width: 100%;
-    padding: 8px 16px;
-    line-height: 25px;
-    font-size: 16px;
-    font-weight: 500;
-    font-family: inherit;
-    border-radius: 16px;
-    -webkit-appearance: none;
-    color: var(--input-color);
-    border: 3px solid var(--input-border);
-    background: var(--input-background);
-    transition: border .3s ease;
-    &::placeholder {
-        color: var(--input-placeholder);
-    }
-    &:focus {
-        outline: none;
-        border-color: var(--input-border-focus);
+  position: relative;
+  width: 100%;
+  padding: 8px 16px;
+  line-height: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  border-radius: 16px;
+  -webkit-appearance: none;
+  color: var(--input-color);
+  border: 3px solid var(--input-border);
+  background: var(--input-background);
+  transition: border .3s ease;
 }
+
+.container2::placeholder {
+  color: var(--input-placeholder);
+}
+
+.container2:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+}
+
 .order-container {
   position: relative;
   width: 100%;
