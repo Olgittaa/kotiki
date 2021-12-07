@@ -42,7 +42,7 @@ const updateProgress = () => {
       step.classList.remove("active");
     }
   });
-  progressBar.style.width = ((active - 1) / (steps.length - 1)) ;
+  progressBar.style.width = ((active - 1) / (steps.length - 1));
   if (active === 1) {
     progressPrev.disabled = true;
   } else if (active === steps.length) {
