@@ -1,7 +1,8 @@
 .place {
   display: inline-flex;
   position: relative;
-  padding-left: 5%;
+  width: 100%;
+  padding-left: 15%;
   padding-right: 10%;
   padding-top: 10%;
   float:left;
@@ -18,18 +19,16 @@
   }
 
 .accessories {
-  display:  inline-grid;
-  width: 100%;
-  max-width: 800px;
+  display:  flex;
   height: auto;
   border: 2px solid #7d7d7d;
-  margin-left: 100px;
+  margin-left: 20%;
 }
 .accessories {
     position: flex;
     top: 34%;
-    max-width: 700px;
-    width: 800px;
+    max-width: 1000px;
+    width: 100%;
     max-height: 500px;
     left: 700px;
     line-height: 30px;
@@ -56,8 +55,9 @@
 
 .container {
       display: block;
-      position: fixed;
+      position: flex;
       top: 15%;
+
       width: 100%;
   }
   .progressbar {
@@ -66,7 +66,7 @@
   }
   .progressbar li {
       list-style-type: none;
-      width: 12%;
+      width: 14%;
       float: left;
       font-size: 17px;
       position: relative;
@@ -113,14 +113,14 @@
   .progress-bar {
     display: flex;
     position: fixed;
-    left: 40rem;
+    left: 20rem;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
-    min-width: 80rem;
+    width: 140rem;
     min-height: 10vh;
     background-color: white;
     border-radius: 2rem;
@@ -234,4 +234,8 @@
 
 .active:after {
     content: "\2212";
+}
+.log_style {
+  font-size: 19px;
+  overflow: hidden;
 }

@@ -28,8 +28,7 @@
         <ul>
           <li><a href="../">About</a></li>
           <li><a href="../">Contact</a></li>
-          <li><a href="../HTML/login.html" id="login">Login</a></li>
-          <li><a href="../HTML/registration.html" id="sign-up">Sign Up</a></li>
+          <li><a href="../index.html" id="sign-up">Sign Out</a></li>
         </ul>
       </nav>
     </div>
@@ -45,13 +44,18 @@
           <li class="step">SSD</li>
           <li class="step">HDD</li>
           <li class="step">Power</li>
-          <li class="step">Design</li>
         </ul>
       </div>
     </div>
     <div class="place">
-      <div class="pc2d">
-        <img class="pc2d" src="../IMG/pc2d.jpg">
+      <div id = "clear" class="pc2d">
+        <script>
+       function clearcontent(elementID) {
+           document.getElementById(elementID).innerHTML = "";
+       }
+       </script>
+
+        <div class = log_style id ="log" ></div>
         </div>
       <div class="accessories">
         <div>
@@ -79,9 +83,13 @@
         </div>
 
 
-        <div class="btn">
-          <button id="progress-prev">Prev</button>
-          <button id="progress-next">Next</button>
+        <div class="btn">.
+          <button id="progress-prev" onclick = "clearcontent('log')">Prev</button>
+          <button id="progress-next" onclick = "clearcontent('log')">Next</button>
+
+
+        <a href="../HTML/order_form.html"  ><button id="login">Finish </button></a>
+
         </div>
         <script src="../JS/script.js"></script>
         <script src="../JS/table.js"></script>
