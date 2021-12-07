@@ -146,7 +146,7 @@
     width: 95%;
     margin: 1rem;
     border: 1px solid #ddd;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 #table-content th, #myTable td {
@@ -248,9 +248,16 @@
 }
 
 .add-button {
-    border-radius: 50%;
-    width: 5rem;
-    height: 5rem;
-    background-color: #fff;
-    font-size: 1.6rem;
+    width: 7rem;
+    height: 7rem;
+    background-color: transparent;
+    font-size: 2rem;
+}
+
+.product-image{
+    width: 7.5rem;
+    height: 7.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
 }
