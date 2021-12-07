@@ -110,7 +110,7 @@ function fillTable(i) {
                   </td>
                   <td>${data[i].rating}</td>
                   <td>€ ${data[i].price}</td>
-                  <td><button onclick="add('${key}','${data[i].name}', '${i}', '${data.length}')">+</button></td>
+                  <td><button class="add-button" onclick="add('${key}','${data[i].name}', '${i}', '${data.length}')">+</button></td>
                   </tr>
 
                 <tr id="hidden_row${i}" style="display:none;">

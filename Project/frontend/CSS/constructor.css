@@ -124,7 +124,7 @@
     background-color: transparent;
 }
 
-.progress-bar-ul li.step.active:before {
+.progress-bar-ul li.active:before {
     border-color: rgba(8, 83, 156, 0.5);
 }
 
@@ -134,23 +134,25 @@
     background-size: 20px 20px;
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    width: 70%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
+    width: 60%;
+    font-size: 1.5rem;
+    padding: 1.2rem 2rem 1.2rem 4rem;
     border: 1px solid #ddd;
-    margin-bottom: 12px;
+    margin: 1.2rem 1rem;
 }
 
 #table-content {
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
+    margin: 1rem;
     border: 1px solid #ddd;
-    font-size: 18px;
+    font-size: 1.8rem;
 }
 
 #table-content th, #myTable td {
-    text-align: center;
-    padding: 12px;
+    text-align: left;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
 }
 
 #table-content tr {
@@ -163,17 +165,22 @@
 
 /* Dropdown Button */
 .dropbtn {
-    background-color: #3498DB;
+    background-color: #5D2A99;
     color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
+    height: 4rem;
+    align-content: center;
+    padding-right: 2rem;
+    padding-left: 1.5rem;
+    border: 1px solid #ddd;
+    margin: 1.2rem 1rem;
     cursor: pointer;
+    font-size: 1.4rem;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
+    background-color: #460097;
+    transition: 0.3s ease-in-out;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -186,7 +193,7 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #fff;
     min-width: 160px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -195,7 +202,8 @@
 /* Links inside the dropdown */
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    font-size: 1.2rem;
+    padding: 1.2rem 1.6rem;
     text-decoration: none;
     display: block;
 }
@@ -237,4 +245,12 @@
     background-color: #dddddd;
     margin: 1rem;
     font-size: 65%;
+}
+
+.add-button {
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    background-color: #fff;
+    font-size: 1.6rem;
 }
