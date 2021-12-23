@@ -1,3 +1,13 @@
+<?php
+session_start();
+include_once "connect.php";
+if(!isset($_SESSION['user_id']))
+{
+header('Location: ../index.html');
+}
+$sql = mysqli_query($conn, "SELECT * FROM users WHERE id = {$_SESSION['user_id']}");
+$row = mysqli_fetch_assoc($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,13 +33,13 @@
         <div class="nav-container">
             <nav>
                 <div id="logo-container">
-                    <h1><a id="home" href="../">Computatrum</a></h1>
+                    <h1><a id="home" href="profile.php">Computatrum</a></h1>
                 </div>
                 <ul>
                   <li><a href="#philosophy-header">About</a></li>
                   <li><a href="#contact">Contact</a></li>
-                  <li><a href="./HTML/login.html" id="login">Login</a></li>
-                  <li><a href="./HTML/registration.html" id="sign-up">Sign Up</a></li>
+                  <li><a><?php echo "You: ".$row['uname'] ?></a></li>
+                  <li><a href = 'logout.php'>Log Out</a></li>
                 </ul>
             </nav>
         </div>
@@ -45,20 +55,20 @@
 
 
              <label for="name"><b>Named</b>  </label>
-             <input type="text" placeholder="First" name="name" required>
-             <input type="text" placeholder="Seccond" name="name" required>
+             <input value="<?php echo htmlspecialchars($row['first_name']) ?>"  type="text" placeholder="First" name="name" required>
+             <input value="<?php echo htmlspecialchars($row['second_name']) ?>" type="text" placeholder="Seccond" name="name" required>
 
              <br>
              <br>
 
-             <label for="phone"><b>Phone</b></label>
-             <input type="text" placeholder="Your phone" name="phone" required>
+             <label  for="phone"><b>Phone</b></label>
+             <input value="<?php echo htmlspecialchars($row['phone']) ?>" type="text" placeholder="Your phone" name="phone" required>
 
              <br>
              <br>
 
              <label for="email"><b>Email</b></label>
-             <input type="text" placeholder="Your Email" name="email" required>
+             <input value="<?php echo htmlspecialchars($row['email']) ?>" type="text" placeholder="Your Email" name="email" required>
 
              <br>
              <br>
@@ -67,8 +77,8 @@
              <input type="text" placeholder="Your Adress" name="adress" required>
           </div>
           <div class="reg-btn-container">
-            <a href="../index.html"><button id="reg-home-btn">Cancel</button></a>
-            <a href="../HTML/order_completed.html"><button id="reg-login-btn">Submit</button></a>
+            <a href="../PHP/profile.php"><button id="reg-home-btn">Cancel</button></a>
+            <a href="order_completed.php"><button id="reg-login-btn">Submit</button></a>
           </div>
         </div>
       </section>

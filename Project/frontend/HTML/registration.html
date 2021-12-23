@@ -38,36 +38,123 @@
       <section id="hero">
         <div class="success-container">
           <div class="container2">
+            <form action = '../PHP/reg.php' method="POST">
              <label for="uname"><b>Username</b></label>
-             <input type="text" placeholder="Enter Username" name="uname" required>
+             <input type="text" placeholder="Enter Username" name = 'uname' id="t1" required>
 
              <br>
 
-             <label for="psw"><b>Password</b></label>
-             <input type="password" placeholder="Enter Password" name="psw" required>
+             <label > <b> Password</b></label>
+             <input type="password" placeholder="Enter Password" name = "password" id="t5" required>
+             <label ><b>Confirm Password</b></label>
+             <input type="password" placeholder="Enter Password" name = 'conf_password' id="t7">
+             <br>
+
+             <label ><b>Named</b>  </label>
+             <input type="text" placeholder="First" name = 'first_name' id="t3" required>
+             <input type="text" placeholder="Seccond" name = 'second_name' id="t4" required>
 
              <br>
 
-             <label for="name"><b>Named</b>  </label>
-             <input type="text" placeholder="First" name="name" required>
-             <input type="text" placeholder="Seccond" name="name" required>
+             <label ><b>Phone</b></label>
+             <input type="text" placeholder="Your phone" name = 'phone' id="t6" required>
 
              <br>
 
-             <label for="phone"><b>Phone</b></label>
-             <input type="text" placeholder="Your phone" name="phone" required>
-
-             <br>
-
-             <label for="email"><b>Email</b></label>
-             <input type="text" placeholder="Your Email" name="email" required>
+             <label ><b>Email</b></label>
+             <input type="text" placeholder="Your Email" name = 'email' id="t2" required>
           </div>
           <div class="reg-btn-container">
             <a href="../index.html"><button id="reg-home-btn">Home</button></a>
-            <a href="../HTML/registrationSuccessfull.html"><button id="reg-login-btn">Registration</button></a>
+            <input type="submit" value="Create Account" id="reg-home-btn" onclick="registration()" />
           </div>
+        </form>
+
         </div>
       </section>
     </main>
+    <script>
+    function registration()
+{
+
+  var uname= document.getElementById("t1").value;
+  var email= document.getElementById("t2").value;
+  var first_name= document.getElementById("t3").value;
+  var second_name= document.getElementById("t4").value;
+  var pwd= document.getElementById("t5").value;
+  var cpwd= document.getElementById("t7").value;
+  var phone= document.getElementById("t6").value;
+
+//email id expression code
+  var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+  var letters = /^[A-Za-z]+$/;
+  var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+  if(uname=='')
+  {
+  alert('Please enter your user name');
+  }
+  else if(!letters.test(uname))
+  {
+  alert('Name field required only alphabet characters');
+  }
+  else if(email=='')
+  {
+  alert('Please enter your user email id');
+  }
+  else if (!filter.test(email))
+  {
+  alert('Invalid email');
+  }
+  else if(first_name=='')
+  {
+  alert('Please enter the user name.');
+  }
+  else if(!letters.test(first_name))
+  {
+  alert('User name field required only alphabet characters');
+  }
+  else if(second_name=='')
+  {
+  alert('Please enter the user name.');
+  }
+  else if(!letters.test(second_name))
+  {
+  alert('User name field required only alphabet characters');
+  }
+  else if(pwd=='')
+  {
+  alert('Please enter Password');
+  }
+  else if(cpwd=='')
+  {
+  alert('Enter Confirm Password');
+  }
+  else if(!pwd_expression.test(pwd))
+  {
+  alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+  }
+  else if(pwd != cpwd)
+  {
+  alert ('Password not Matched');
+  }
+  else if(document.getElementById("t7").value.length < 6)
+  {
+  alert ('Password minimum length is 6');
+  }
+  else if(document.getElementById("t7").value.length > 12)
+  {
+  alert ('Password max length is 12');
+  }
+  else
+  {
+  //alert('Thank You for Registration');
+  // Redirecting to other page or webste code.
+ //  window.location = "./registrationSuccessfull.html";
+  }
+  }
+
+
+    </script>
   </body>
 </html>

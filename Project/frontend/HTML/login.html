@@ -13,8 +13,7 @@
     >
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet"/>
     <link rel="icon" href="../Icons/gamepad.png"/>
     <title>Login</title>
   </head>
@@ -35,22 +34,24 @@
       </div>
     </header>
     <main>
+      <form action = '../PHP/login.php' method="POST">
       <section id="hero">
         <div class="success-container">
           <div class="container2">
              <label for="uname"><b>Username</b></label>
-             <input type="text" placeholder="Enter Username" name="uname" required>
+             <input type="text" placeholder="Enter Username" name = 'uname' id="uname" required>
              <br>
              <br>
-             <label for="psw"><b>Password</b></label>
-             <input type="password" placeholder="Enter Password" name="psw" required>
+             <label for="pwd"><b>Password</b></label>
+             <input type="password" placeholder="Enter Password" name = 'password' id="pwd" required>
           </div>
           <div class="reg-btn-container">
-            <a href="../index.html"><button id="reg-home-btn">Home</button></a>
-            <a href="../HTML/index_loging.html"><button id="reg-login-btn">Login</button></a>
+            <a href="../"><button id="reg-home-btn">Home</button></a>
+            <input type="submit" value="Login" id="reg-home-btn" onClick="login()" /></td>
           </div>
         </div>
       </section>
+    </form>
     </main>
   </body>
 </html>

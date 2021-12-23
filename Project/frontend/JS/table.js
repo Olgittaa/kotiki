@@ -87,38 +87,40 @@ function getSpecifications(data) {
 }
 
 function fillTable(i) {
-    let index = 0;
-    let key;
-    for (key in all) {
-        if (index === i) {
-            break
+    if (i !== 7) {
+        let index = 0;
+        let key;
+        for (key in all) {
+            if (index === i) {
+                break
+            }
+            index++;
         }
-        index++;
-    }
 
-    let data = all[key]
-    let table = "<tbody id='body'>";
-    for (let i = 0; i < data.length; i++) {
-        if (data[i].name === chosen[key]) {
-            table += `<tr id="row_${i}" style="background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(244,244,244,1) 100%)">`
-        } else {
-            table += `<tr id="row_${i}">`
-        }
-        table += `<td><img width="75px" height="75px" src="../IMG/${key}/${data[i].name}.jpeg" alt=""></td>
+        let data = all[key]
+        let table = "<tbody id='body'>";
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].name === chosen[key]) {
+                table += `<tr id="row_${i}" style="background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(244,244,244,1) 100%)">`
+            } else {
+                table += `<tr id="row_${i}">`
+            }
+            table += `<td><img class="product-image" src="../IMG/${key}/${data[i].name}.jpeg" alt=""></td>
                   <td>${data[i].name}
-                  <button onclick="showHideRow('hidden_row${i}');">i</button>
+                  <button class="info-button"  onclick="showHideRow('hidden_row${i}');">i</button>
                   </td>
                   <td>${data[i].rating}</td>
                   <td>€ ${data[i].price}</td>
-                  <td><button onclick="add('${key}','${data[i].name}', '${i}', '${data.length}')">+</button></td>
+                  <td><button class="add-button" onclick="add('${key}','${data[i].name}', '${i}', '${data.length}')">+</button></td>
                   </tr>
 
                 <tr id="hidden_row${i}" style="display:none;">
                 <td colspan="5">${getSpecifications(data[i])}</td>
                 </tr>`;
+        }
+        table += "</tbody>";
+        document.getElementById("table-content").innerHTML += table;
     }
-    table += "</tbody>";
-    document.getElementById("table-content").innerHTML += table;
 }
 
 function add(key, value, i, n) {
@@ -132,19 +134,6 @@ function add(key, value, i, n) {
     chosen[key] = value
     console.log(chosen)
   }
-
-    (function () {
-    var old = console.log;
-    var logger = document.getElementById('log');
-    console.log = function (message) {
-        if (typeof message == 'object') {
-            logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br/>';
-        } else {
-            logger.innerHTML += message + '<br/>';
-        }
-    }
-})();
-
 
 
 let all = {
