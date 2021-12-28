@@ -3,7 +3,7 @@ const progressNext = document.getElementById("progress-next");
 const progressPrev = document.getElementById("progress-prev");
 const progressFinish = document.getElementById("progress-finish");
 const colorBar = document.querySelector("#color-bar");
-const pc2d = document.querySelector("#pc2d");
+const pc2d = document.querySelector("#pc2d-img");
 const steps = document.querySelectorAll(".step");
 
 let active = 1;
