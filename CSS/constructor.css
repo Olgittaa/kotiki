@@ -1,272 +1,304 @@
+#place-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
 .place {
   display: inline-flex;
-  position: relative;
-  padding-left: 5%;
-  padding-right: 10%;
-  padding-top: 10%;
-  float:left;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 #pc2d {
-    display: flex;
-    position: center;
-    width: 45rem;
-    height: auto;
-    overflow: auto;
+  display: flex;
+  position: center;
+  width: 40rem;
+  height: auto;
+  overflow: auto;
 }
 
 .accessories {
-    display: inline-grid;
-    height: auto;
-    top: 34%;
-    max-width: 700px;
-    width: 800px;
-    max-height: 500px;
-    left: 700px;
-    line-height: 30px;
-    overflow: auto;
-    margin-left: 100px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-    border-radius: 1rem;
+  display: inline-grid;
+  height: auto;
+  top: 34%;
+  max-width: 700px;
+  width: 800px;
+  max-height: 500px;
+  left: 700px;
+  line-height: 30px;
+  overflow: auto;
+  margin-left: 100px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
 }
 
 .accessories:hover {
-    transition: 0.2s ease-in-out;
-    box-shadow: 0 0 20px rgba(70, 49, 49, 0.575);
+  transition: 0.2s ease-in-out;
+  box-shadow: 0 0 20px rgba(70, 49, 49, 0.575);
 }
 
 .btn {
-    display: flex;
-    grid-template-columns: 1fr 1fr;
-    position: fixed;
-    flex: 20px;
-    top: 87%;
-    width: 300px;
-    right: 30%;
-    border-radius: 400px;
-    border: 3px solid #f1f1f1;
-    padding: 1rem;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: white;
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  position: fixed;
+  flex: 20px;
+  top: 87%;
+  width: 300px;
+  right: 30%;
+  border-radius: 400px;
+  border: 3px solid #f1f1f1;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: white;
 }
 
-
 .container {
-    display: block;
-    position: fixed;
-    top: 15%;
-    width: 100%;
+  width: 90%;
+  min-height: 10vh;
+  margin: 2rem auto;
+  position: relative;
 }
 
 .progress-bar-ul {
-    counter-reset: step;
-    color: rgba(0 0 0 0.8);
+  counter-reset: step;
+  color: rgba(0 0 0 0.8);
 }
 
 .progress-bar {
-    display: inline;
-    margin-left: 40rem;
-    padding: 2rem;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    text-align: center;
-    min-width: 80rem;
-    min-height: 10vh;
-    background-color: white;
-    border-radius: 2rem;
+  display: inline;
+  margin-left: 40rem;
+  padding: 2rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  min-width: 80rem;
+  min-height: 10vh;
+  background-color: white;
+  border-radius: 2rem;
 }
 
 .progress-bar-ul li {
-    list-style-type: none;
-    width: 12%;
-    float: left;
-    font-size: 1.5rem;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-    color: #000000;
+  list-style-type: none;
+  width: 12%;
+  float: left;
+  font-size: 1.5rem;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
 }
 
 .progress-bar-ul li:before {
-    width: 3rem;
-    height: 3rem;
-    content: counter(step);
-    counter-increment: step;
-    line-height: 3rem;
-    border: 2px solid #000000;
-    display: block;
-    text-align: center;
-    margin: 0 auto 10px auto;
-    border-radius: 50%;
-    background-color: white;
+  width: 4rem;
+  height: 4rem;
+  content: counter(step);
+  counter-increment: step;
+  line-height: 3rem;
+  border: 0.3rem solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
+  background-color: white;
+  transition: 0.3s ease-in-out;
 }
 
-.progress-bar-ul li:after {
-    width: 100%;
-    height: 2px;
-    content: '';
-    position: absolute;
-    background-color: #000000;
-    top: 1.5rem;
-    left: -50%;
-    z-index: -1;
+#progress-num {
+  display: flex;
+  justify-content: space-between;
 }
+
+#bar {
+  position: absolute;
+  width: 100%;
+  height: 0.4rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+  top: 30%;
+}
+
+#color-bar {
+  width: 0%;
+  height: 100%;
+  background-color: #5d2a99;
+  transition: 0.3s ease-in-out;
+}
+
+/* .progress-bar-ul li:after {
+  width: 100%;
+  height: 0.3rem;
+  content: "";
+  position: absolute;
+  background-color: #000000;
+  top: 1.5rem;
+  left: -50%;
+  z-index: 0;
+} */
 
 .progress-bar-ul li:first-child:after {
-    content: none;
+  content: none;
 }
 
 .step.active {
-    transition: 0.2s ease-in-out;
-    background-color: transparent;
+  transition: 0.2s ease-in-out;
+  background-color: transparent;
 }
 
 .progress-bar-ul li.active:before {
-    border-color: rgba(8, 83, 156, 0.5);
+  border-color: #5d2a99;
 }
 
+.progress-bar-ul li.scaled:before {
+  transform: scale(1.3);
+}
 
 #myInput {
-    background-image: url('../Icons/search.png');
-    background-size: 20px 20px;
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    width: 60%;
-    font-size: 1.5rem;
-    padding: 1.2rem 2rem 1.2rem 4rem;
-    border: 1px solid #ddd;
-    margin: 1.2rem 1rem;
+  background-image: url("../Icons/search.png");
+  background-size: 20px 20px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 60%;
+  font-size: 1.5rem;
+  padding: 1.2rem 2rem 1.2rem 4rem;
+  border: 1px solid #ddd;
+  margin: 1.2rem 1rem;
 }
 
 #table-content {
-    border-collapse: collapse;
-    width: 95%;
-    margin: 1rem;
-    border: 1px solid #ddd;
-    font-size: 1.6rem;
-    padding: 0 2em 1em 0;
+  border-collapse: collapse;
+  width: 95%;
+  margin: 1rem;
+  border: 1px solid #ddd;
+  font-size: 1.6rem;
+  padding: 0 2em 1em 0;
 }
 
-#table-content th, #myTable td {
-    text-align: left;
-    padding-top: 1.2rem;
-    padding-bottom: 1.2rem;
+#table-content th,
+#myTable td {
+  text-align: left;
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
 }
 
 #table-content tr {
-    border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
-#table-content tr.header, #table-content tr:hover {
-    background-color: #f1f1f1;
+#table-content tr.header,
+#table-content tr:hover {
+  background-color: #f1f1f1;
 }
 
 /* Dropdown Button */
 .dropbtn {
-    background-color: #5D2A99;
-    color: white;
-    height: 4rem;
-    align-content: center;
-    padding-right: 2rem;
-    padding-left: 1.5rem;
-    border: 1px solid #ddd;
-    margin: 1.2rem 1rem;
-    cursor: pointer;
-    font-size: 1.4rem;
+  background-color: #5d2a99;
+  color: white;
+  height: 4rem;
+  align-content: center;
+  padding-right: 2rem;
+  padding-left: 1.5rem;
+  border: 1px solid #ddd;
+  margin: 1.2rem 1rem;
+  cursor: pointer;
+  font-size: 1.4rem;
 }
 
 /* Dropdown button on hover & focus */
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #460097;
-    transition: 0.3s ease-in-out;
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #460097;
+  transition: 0.3s ease-in-out;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    min-width: 160px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    z-index: 1;
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-    color: black;
-    font-size: 1.2rem;
-    padding: 1.2rem 1.6rem;
-    text-decoration: none;
-    display: block;
+  color: black;
+  font-size: 1.2rem;
+  padding: 1.2rem 1.6rem;
+  text-decoration: none;
+  display: block;
 }
 
 /* Change color of dropdown links on hover */
 .dropdown-content a:hover {
-    background-color: #ddd
+  background-color: #ddd;
 }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
-    display: block;
+  display: block;
 }
 
 .collapsible {
-    background-color: #777;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
 }
 
 .collapsible:after {
-    content: '\002B';
-    color: white;
-    font-weight: bold;
-    float: right;
-    margin-left: 5px;
+  content: "\002B";
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
 }
 
 .info-button {
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    background-color: #dddddd;
-    margin: 1rem;
-    font-size: 65%;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  background-color: #dddddd;
+  margin: 1rem;
+  font-size: 65%;
 }
 
 .add-button {
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: transparent;
-    padding: 0.5rem 3rem;
-    border: 0.2rem solid black;
-    margin: .5rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 0.5rem 3rem;
+  border: 0.2rem solid black;
+  margin: 0.5rem 1.5rem;
 }
 
 .add-button:hover {
-    background-color: black;
-    color: white;
-    transition: 0.2s ease-in-out;
+  background-color: black;
+  color: white;
+  transition: 0.2s ease-in-out;
 }
 
-.product-image{
-    width: 7.5rem;
-    height: 7.5rem;
-    margin-right: 1rem;
-    margin-left: 1rem;
-    margin-top: 1rem;
+.product-image {
+  width: 7.5rem;
+  height: 7.5rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }

@@ -1,31 +1,77 @@
 const progressBar = document.getElementById("progress-bar");
 const progressNext = document.getElementById("progress-next");
 const progressPrev = document.getElementById("progress-prev");
+const colorBar = document.querySelector("#color-bar");
+const pc2d = document.querySelector("#pc2d");
 const steps = document.querySelectorAll(".step");
+
 let active = 1;
+const colorBarStepLength = 100 / steps.length;
+const defaultBarLength = colorBarStepLength / 2;
+
+colorBar.style.width = `${defaultBarLength}%`;
+
+const changeForvardScaling = (index) => {
+  if (index - 1 >= 0) {
+    steps[index - 1].classList.remove("scaled");
+  }
+
+  steps[index].classList.add("scaled");
+};
+
+const changeBackvardScaling = (index) => {
+  if (index - 1 >= 0) {
+    steps[index - 1].classList.add("scaled");
+  }
+
+  steps[index].classList.remove("scaled");
+};
+
+const changeColorBarWidth = (idxOfActiveStep) => {
+  const newLength = defaultBarLength + colorBarStepLength * idxOfActiveStep;
+
+  if (idxOfActiveStep === steps.length - 1) {
+    colorBar.style.width = `100%`;
+
+    return;
+  }
+
+  colorBar.style.width = `${newLength}%`;
+};
 
 progressNext.addEventListener("click", () => {
+  changeForvardScaling(active);
+  changeColorBarWidth(active);
+
   active++;
+
   if (active > steps.length) {
     active = steps.length;
   }
+
   updateProgress();
 });
 
 progressPrev.addEventListener("click", () => {
   active--;
+
+  changeBackvardScaling(active);
+  changeColorBarWidth(active - 1);
+
   if (active < 1) {
     active = 1;
   }
+
   updateProgress();
 });
 
 function changePicture(active) {
-  if (active === 8) {
-    document.getElementById("pc2d").src = "../IMG/2d/PC-block.png"
+  if (active === steps.length) {
+    pc2d.src = "../IMG/2d/PC-block.png";
   } else {
-    document.getElementById("pc2d").src = "../IMG/2d/block_with_" +
-        progressValues[active - 1].toLowerCase().replace(' ', '') + ".png"
+    const value = progressValues[active - 1].toLowerCase().replace(" ", "");
+
+    pc2d.src = `../IMG/2d/block_with_${value}.png`;
   }
 }
 
@@ -38,11 +84,13 @@ const updateProgress = () => {
   steps.forEach((step, i) => {
     if (i < active) {
       step.classList.add("active");
+      // step.classList.add("scaled");
     } else {
       step.classList.remove("active");
+      // step.classList.remove("scaled");
     }
   });
-  progressBar.style.width = ((active - 1) / (steps.length - 1));
+  progressBar.style.width = (active - 1) / (steps.length - 1);
   if (active === 1) {
     progressPrev.disabled = true;
   } else if (active === steps.length) {
@@ -54,4 +102,12 @@ const updateProgress = () => {
 };
 
 let progressValues = [
-  "Video card", "Processor", "Motherboard", "Memory", "SSD", "HDD", "Power", "Design"]
+  "Video card",
+  "Processor",
+  "Motherboard",
+  "Memory",
+  "SSD",
+  "HDD",
+  "Power",
+  "Design",
+];
