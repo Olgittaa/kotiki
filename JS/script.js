@@ -20,7 +20,7 @@ const changeForvardScaling = (index) => {
   steps[index].classList.add("scaled");
 };
 
-const changeBackvardScaling = (index) => {
+const changeBackwardScaling = (index) => {
   if (index - 1 >= 0) {
     steps[index - 1].classList.add("scaled");
   }
@@ -56,7 +56,7 @@ progressNext.addEventListener("click", () => {
 progressPrev.addEventListener("click", () => {
   active--;
 
-  changeBackvardScaling(active);
+  changeBackwardScaling(active);
   changeColorBarWidth(active - 1);
 
   if (active < 1) {
@@ -67,14 +67,14 @@ progressPrev.addEventListener("click", () => {
 });
 
 progressFinish.addEventListener("click", () => {
-  let all
+  let all = true;
   for (let chosenKey in chosen) {
     if (chosen[chosenKey] == null) {
       all = false
       break
     }
   }
-  all ? window.location.href = "../../HTML/order_form.html" : snackBar()
+  all ? window.location.href = "../HTML/order_form.html" : snackBar()
 });
 
 function changePicture(active) {
@@ -114,7 +114,7 @@ const updateProgress = () => {
 };
 
 let progressValues = [
-  "Video card", "Processor", "Motherboard", "Memory", "SSD", "HDD", "Power", "Case"];
+  "Video card", "Processor", "Motherboard", "Memory", "SSD", "HDD", "Power", "Other"];
 
 
 function snackBar() {

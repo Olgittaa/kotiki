@@ -86,21 +86,26 @@ function getSpecifications(data) {
     return spec
 }
 
-function fillOther() {
-    document.getElementById("pc2d").remove();
-    let table = "<tbody id='tbody'>";
-    table += "</tbody>";
-    document.getElementById("table-content").innerHTML += table;
+function fillOther(name) {
+    fillTable(name)
+    document.getElementById("tbody").remove();
 }
 
 function fillTable(name) {
     if (name !== "Other") {
+        if (name !== "Case" && name !== "Monitor" && name !== "Sound Card" && name !== "Wireless Network Adapter" && name !== "Wired Network Adapter") {
+            document.getElementById("pc2d-img").style = "display:block;";
+            document.getElementById("optional-container").style = "display:none;"
+        } else {
+            document.getElementById("pc2d-img").style = "display:none;";
+            document.getElementById("optional-container").style = "display:block;"
+        }
         let data = all[name]
 
         console.log(data)
         let table = "<tbody id='tbody'>";
         for (let i = 0; i < data.length; i++) {
-            if (data[i].name === chosen[name]) {
+            if (chosen[name] !== null &&chosen[name] !== undefined && data[i].name === chosen[name].value) {
                 table += `<tr id="row_${i}" style="border: 2px solid #460097;">`
             } else {
                 table += `<tr id="row_${i}">`
@@ -118,7 +123,7 @@ function fillTable(name) {
                   </td>
                   <td>${data[i].rating}</td>
                   <td>€ ${data[i].price}</td>`;
-            if (data[i].name === chosen[name]) {
+            if (chosen[name] !== null &&chosen[name] !== undefined && data[i].name === chosen[name].value) {
                 table += `<td><button class="add-button" id="add-button-${i}" style="background-color: black; color: white;" ">ADDED</button></td>`
             } else {
                 table += `<td><button class="add-button" id="add-button-${i}" onclick="add('${name}','${data[i].name}','${data[i].price}', '${i}', '${data.length}')">ADD</button></td>`
@@ -131,7 +136,7 @@ function fillTable(name) {
         table += "</tbody>";
         document.getElementById("table-content").innerHTML += table;
     } else {
-        fillOther();
+        fillTable("Monitor")
     }
 }
 
@@ -885,7 +890,6 @@ let chosen = {
     "Memory": null,
     "SSD": null,
     "HDD": null,
-    "Power": null,
-    "Case": null
+    "Power": null
 }
 

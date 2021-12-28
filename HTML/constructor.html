@@ -50,24 +50,69 @@
           <li class="step">SSD</li>
           <li class="step">HDD</li>
           <li class="step">Power</li>
-          <li class="step">Case</li>
+          <li class="step">Other</li>
         </ul>
       </div>
     </div>
     <section id="place-container">
-    <div class="place">
-      <div class="pc2d" id="pc2d">
-        <img id="pc2d-img" src="../IMG/2d/block_with_videocard.png" alt="pc">
+      <div class="place">
+        <div class="pc2d" id="pc2d">
+          <img id="pc2d-img" src="../IMG/2d/block_with_videocard.png" alt="pc">
+
+          <!--for optional components-->
+          <div id="optional-container" class="optional-container">
+            <div class="optional-card">
+              <div class="optional-product">
+                <button onclick="fillOther('Monitor')">
+                  <img src="../IMG/2d/monitor.png" alt=""/>Monitor
+                </button>
+              </div>
+            </div>
+
+            <div class="optional-card">
+              <div class="optional-product">
+                <button onclick="fillOther('Sound Card')">
+                  <img src="../IMG/2d/sound-card.png" alt=""/>Sound Card
+                </button>
+              </div>
+            </div>
+
+            <div class="optional-card">
+              <div class="optional-product">
+                <button onclick="fillOther('Wired Network Adapter')">
+                  <img src="../IMG/2d/network.png" alt=""/>Wired Network Adapter
+                </button>
+              </div>
+            </div>
+
+            <div class="optional-card">
+              <div class="optional-product">
+                <button onclick="fillOther('Wireless Network Adapter')">
+                  <img src="../IMG/2d/wireless.png" alt=""/>Wireless Network Adapter
+                </button>
+              </div>
+            </div>
+
+            <div class="optional-card">
+              <div class="optional-product">
+                <button onclick="fillOther('Case')">
+                  <img src="../IMG/2d/computer-case.png" alt=""/>Case
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
-      <div class="accessories">
-        <div>
-          <input
-                  type="text"
-                  id="myInput"
-                  onkeyup="search()"
-                  placeholder="Search for names.."
-                  title="Type in a name"
-          />
+
+        <div class="accessories">
+          <div>
+            <input
+                    type="text"
+                    id="myInput"
+                    onkeyup="search()"
+                    placeholder="Search for names.."
+                    title="Type in a name"
+            />
           <div class="dropdown">
             <button id="dropdownbtn" onclick="dropdown()" class="dropbtn">
               Sort by:
@@ -100,8 +145,6 @@
       </div>
       <div id="snackbar">Choose all required components</div>
     </div>
-
-
     </section>
   </main>
   </body>
