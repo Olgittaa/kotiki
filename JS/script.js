@@ -33,7 +33,7 @@ const updateProgress = () => {
   fillTable(active - 1);
   changePicture(active);
 
-  document.getElementById("body").remove();
+  document.getElementById("tbody").remove();
 
   steps.forEach((step, i) => {
     if (i < active) {

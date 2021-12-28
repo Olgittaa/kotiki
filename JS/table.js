@@ -86,6 +86,12 @@ function getSpecifications(data) {
     return spec
 }
 
+function fillDesign() {
+    let table = "<tbody id='tbody'>";
+    table += "</tbody>";
+    document.getElementById("table-content").innerHTML += table;
+}
+
 function fillTable(i) {
     if (i !== 7) {
         let index = 0;
@@ -98,10 +104,11 @@ function fillTable(i) {
         }
 
         let data = all[key]
-        let table = "<tbody id='body'>";
+
+        let table = "<tbody id='tbody'>";
         for (let i = 0; i < data.length; i++) {
             if (data[i].name === chosen[key]) {
-                table += `<tr id="row_${i}" style="background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(244,244,244,1) 100%)">`
+                table += `<tr id="row_${i}" style="border: 2px solid #460097;">`
             } else {
                 table += `<tr id="row_${i}">`
             }
@@ -110,29 +117,37 @@ function fillTable(i) {
                   <button class="info-button"  onclick="showHideRow('hidden_row${i}');">i</button>
                   </td>
                   <td>${data[i].rating}</td>
-                  <td>€ ${data[i].price}</td>
-                  <td><button class="add-button" onclick="add('${key}','${data[i].name}', '${i}', '${data.length}')">+</button></td>
-                  </tr>
-
+                  <td>€ ${data[i].price}</td>`;
+            if (data[i].name === chosen[key]) {
+                table += `<td><button class="add-button" id="add-button-${i}" style="background-color: black; color: white;" ">ADDED</button></td>`
+            } else {
+                table += `<td><button class="add-button" id="add-button-${i}" onclick="add('${key}','${data[i].name}', '${i}', '${data.length}')">ADD</button></td>`
+            }
+            table += `</tr>
                 <tr id="hidden_row${i}" style="display:none;">
                 <td colspan="5">${getSpecifications(data[i])}</td>
                 </tr>`;
         }
         table += "</tbody>";
         document.getElementById("table-content").innerHTML += table;
+    } else {
+        fillDesign();
     }
 }
 
 function add(key, value, i, n) {
     for (let j = 0; j < n; j++) {
         if (j == i) {
-            document.getElementById("row_" + j).style.background = "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%)";
+            document.getElementById("row_" + j).style.border = "2px solid #460097";
+            document.getElementById("add-button-" + j).innerText = "ADDED"
+            document.getElementById("add-button-" + j).style="background-color: black; color: white;";
         } else {
-            document.getElementById("row_" + j).style.background = "transparent";
+            document.getElementById("row_" + j).style.border = "none";
+            document.getElementById("add-button-" + j).innerText = "ADD"
+            document.getElementById("add-button-" + j).style="none";
         }
     }
     chosen[key] = value
-    console.log(chosen)
   }
 
 
