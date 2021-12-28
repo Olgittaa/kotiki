@@ -81,47 +81,47 @@ function showHideRow(row) {
 function getSpecifications(data) {
     let spec = ''
     for (let [key, value] of Object.entries(data.specifications)) {
-        spec += `<p>${key}: ${value}</p>`
+        spec += `<p style="margin: 1rem">${key}: ${value}</p>`
     }
     return spec
 }
 
-function fillDesign() {
+function fillOther() {
+    document.getElementById("pc2d").remove();
     let table = "<tbody id='tbody'>";
     table += "</tbody>";
     document.getElementById("table-content").innerHTML += table;
 }
 
-function fillTable(i) {
-    if (i !== 7) {
-        let index = 0;
-        let key;
-        for (key in all) {
-            if (index === i) {
-                break
-            }
-            index++;
-        }
+function fillTable(name) {
+    if (name !== "Other") {
+        let data = all[name]
 
-        let data = all[key]
-
+        console.log(data)
         let table = "<tbody id='tbody'>";
         for (let i = 0; i < data.length; i++) {
-            if (data[i].name === chosen[key]) {
+            if (data[i].name === chosen[name]) {
                 table += `<tr id="row_${i}" style="border: 2px solid #460097;">`
             } else {
                 table += `<tr id="row_${i}">`
             }
-            table += `<td><img class="product-image" src="../IMG/${key}/${data[i].name}.jpeg" alt=""></td>
+            table += `<td><div class="click-zoom">
+                        <label>
+                        <input type="checkbox">
+                        <img class="product-image" src="../IMG/${name}/${data[i].name}.jpeg" alt="">
+                        </label>
+                    </div>
+  
+                        </td>
                   <td>${data[i].name}
                   <button class="info-button"  onclick="showHideRow('hidden_row${i}');">i</button>
                   </td>
                   <td>${data[i].rating}</td>
                   <td>€ ${data[i].price}</td>`;
-            if (data[i].name === chosen[key]) {
+            if (data[i].name === chosen[name]) {
                 table += `<td><button class="add-button" id="add-button-${i}" style="background-color: black; color: white;" ">ADDED</button></td>`
             } else {
-                table += `<td><button class="add-button" id="add-button-${i}" onclick="add('${key}','${data[i].name}', '${i}', '${data.length}')">ADD</button></td>`
+                table += `<td><button class="add-button" id="add-button-${i}" onclick="add('${name}','${data[i].name}','${data[i].price}', '${i}', '${data.length}')">ADD</button></td>`
             }
             table += `</tr>
                 <tr id="hidden_row${i}" style="display:none;">
@@ -131,24 +131,25 @@ function fillTable(i) {
         table += "</tbody>";
         document.getElementById("table-content").innerHTML += table;
     } else {
-        fillDesign();
+        fillOther();
     }
 }
 
-function add(key, value, i, n) {
+function add(key, value, price, i, n) {
     for (let j = 0; j < n; j++) {
         if (j == i) {
             document.getElementById("row_" + j).style.border = "2px solid #460097";
             document.getElementById("add-button-" + j).innerText = "ADDED"
-            document.getElementById("add-button-" + j).style="background-color: black; color: white;";
+            document.getElementById("add-button-" + j).style = "background-color: black; color: white;";
         } else {
             document.getElementById("row_" + j).style.border = "none";
             document.getElementById("add-button-" + j).innerText = "ADD"
-            document.getElementById("add-button-" + j).style="none";
+            document.getElementById("add-button-" + j).style = "none";
         }
     }
-    chosen[key] = value
-  }
+    chosen[key] = {value, price}
+    console.log(chosen)
+}
 
 
 let all = {
@@ -709,15 +710,182 @@ let all = {
             "rating": 5,
             "price": 233
         }
-    ]
+    ],
+    "Case": [
+        {
+            "name": "Corsair 4000D Airflow",
+            "specifications": {},
+            "rating": 4.8,
+            "price": 94.99
+        }, {
+            "name": "NZXT H510 ATX",
+            "specifications": {},
+            "rating": 4.6,
+            "price": 73.99
+        }, {
+            "name": "Corsair iCUE 4000X",
+            "specifications": {},
+            "rating": 4.8,
+            "price": 114.99
+        }, {
+            "name": "Lian Li PC-O11 Dynamic",
+            "specifications": {},
+            "rating": 4.9,
+            "price": 159.99
+        }, {
+            "name": "Phanteks Eclipse P300",
+            "specifications": {},
+            "rating": 4.4,
+            "price": 59.99
+        }, {
+            "name": "Lian Li O11 Dynamic Mini Snow Edition",
+            "specifications": {},
+            "rating": 4.8,
+            "price": 127.99
+        }, {
+            "name": "Cooler Master MasterBox Q300L",
+            "specifications": {},
+            "rating": 4.2,
+            "price": 59.99
+        }],
+    "Monitor": [
+        {
+            "name": "Asus TUF Gaming VG27AQ",
+            "specifications": {
+                "Screen size": "27.0\"",
+                "Resolution": "2560 x 1440",
+                "Refresh rate": "165 Hz",
+                "Response time (G2G)": "1 ms",
+                "Panel type": "IPS",
+                "Aspect ratio": "16:9"
+            },
+            "rating": 4.8,
+            "price": 338.99
+        }, {
+            "name": "HP OMEN X Emperium 65",
+            "specifications": {
+                "Screen size": "65.0\"",
+                "Resolution": "3840 x 2160",
+                "Refresh rate": "144 Hz",
+                "Response time (G2G)": "4 ms",
+                "Panel type": "VA",
+                "Aspect ratio": "16:9"
+            },
+            "rating": 4.4,
+            "price": 3999.99
+        }, {
+            "name": "Asus VG248QG",
+            "specifications": {
+                "Screen size": "24.0\"",
+                "Resolution": "1920 x 1080",
+                "Refresh rate": "165 Hz",
+                "Response time (G2G)": "0.5 ms",
+                "Panel type": "TN",
+                "Aspect ratio": "16:9"
+            },
+            "rating": 4.9,
+            "price": 189.99
+        },
+        {
+            "name": "MSI Optix G241",
+            "specifications": {
+                "Screen size": "23.8.0\"",
+                "Resolution": "1920 x 1080",
+                "Refresh rate": "144 Hz",
+                "Response time (G2G)": "1 ms",
+                "Panel type": "IPS",
+                "Aspect ratio": "16:9"
+            },
+            "rating": 4.6,
+            "price": 249.89
+        },
+    ],
+    "Sound Card": [
+        {
+            "name": "Creative Labs Sound Blaster AE-9",
+            "specifications": {
+                "Channels": 7.1,
+                "Digital audio": "32-bit",
+                "SNR": "129db",
+                "Sample Rate": "384 kHz"
+            },
+            "rating": 4.5,
+            "price": 332.49
+        }, {
+            "name": "Creative Labs ZXR",
+            "specifications": {
+                "Channels": 5.1,
+                "Digital audio": "24-bit",
+                "SNR": "124db",
+                "Sample Rate": "192 kHz"
+            },
+            "rating": 4.6,
+            "price": 756.03
+        }, {
+            "name": "Asus Xonar SE",
+            "specifications": {
+                "Channels": 5.1,
+                "Digital audio": "24-bit",
+                "SNR": "120db",
+                "Sample Rate": "192 kHz"
+            },
+            "rating": 5.0,
+            "price": 39.99
+        }],
+    "Wired Network Adapter": [
+        {
+            "name": "Asus XG-C100C",
+            "specifications": {
+                "Interface": "PCIe x4",
+                "Ports": "1 x 10 Gbit/s"
+            },
+            "rating": 5.0,
+            "price": 92.99
+        }, {
+            "name": "TP-Link TG-3468",
+            "specifications": {
+                "Interface": "PCIe x1",
+                "Ports": "1 x 1 Gbit/s"
+            },
+            "rating": 4.7,
+            "price": 14.99
+        }],
+    "Wireless Network Adapter": [
+        {
+            "name": "TP-Link Archer T4E",
+            "specifications": {
+                "Interface": "PCIe x1",
+                "Protocol": "Wi-Fi 5"
+            },
+            "rating": 4.6,
+            "price": 24.99
+        }, {
+            "name": "Asus PCE-AX58BT",
+            "specifications": {
+                "Interface": "PCIe x1",
+                "Protocol": "Wi-Fi 6"
+            },
+            "rating": 4.6,
+            "price": 69.98
+        }, {
+            "name": "TP-Link Archer TX50E",
+            "specifications": {
+                "Interface": "PCIe x1",
+                "Protocol": "Wi-Fi 6"
+            },
+            "rating": 4.6,
+            "price": 119.98
+        }]
 }
 
 let chosen = {
-    // "Video card": null,
-    // "Processor": null,
-    // "Motherboard": null,
-    // "Memory": null,
-    // "SSD": null,
-    // "HDD": null,
-    // "Power": null
+    "Video card": null,
+    "Processor": null,
+    "Motherboard": null,
+    "Memory": null,
+    "SSD": null,
+    "HDD": null,
+    "Power": null,
+    "Case": null
 }
+

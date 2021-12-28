@@ -18,7 +18,7 @@
     />
     <title>Constructor</title>
   </head>
-  <body onload="fillTable(0)">
+  <body onload="fillTable('Video card')">
   <header id="main-header">
     <div class="nav-container">
       <nav>
@@ -45,13 +45,13 @@
           <li class="step">SSD</li>
           <li class="step">HDD</li>
           <li class="step">Power</li>
-          <li class="step">Design</li>
+          <li class="step">Case</li>
         </ul>
       </div>
     </div>
     <div class="place">
-      <div class="pc2d">
-        <img id="pc2d" src="../IMG/2d/block_with_videocard.png" alt="pc">
+      <div class="pc2d" id="pc2d">
+        <img id="pc2d-img" src="../IMG/2d/block_with_videocard.png" alt="pc">
         </div>
       <div class="accessories">
         <div>
@@ -80,13 +80,12 @@
         <div class="btn">
           <button id="progress-prev">Prev</button>
           <button id="progress-next">Next</button>
-          <a href="../HTML/order_form.html">
-            <button>Finish</button>
-          </a>
+          <button id="progress-finish">Finish</button>
         </div>
         <script src="../JS/script.js"></script>
         <script src="../JS/table.js"></script>
       </div>
+      <div id="snackbar">Choose all required components</div>
     </div>
 
     </main>
