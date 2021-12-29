@@ -11,14 +11,6 @@
     justify-content: space-evenly;
 }
 
-#pc2d-img {
-    display: flex;
-    position: center;
-    width: 40rem;
-    height: auto;
-    overflow: auto;
-}
-
 .accessories {
     display: inline-grid;
     height: auto;
@@ -394,9 +386,101 @@
     display: none;
 }
 
-.optional-product button{
+.optional-product button {
 
 }
-.optional-product img{
+
+.optional-product img {
     width: 25px;
+}
+
+#pc2d-img {
+    position: relative;
+}
+
+#block {
+    display: flex;
+    position: relative;
+    width: 40rem;
+    height: auto;
+    overflow: auto;
+    top: 0;
+    left: 0;
+}
+
+#processor {
+    display: none;
+    position: absolute;
+    top: 4rem;
+    left: 2.5rem;
+    width: 10.5rem;
+    height: auto;
+}
+
+#motherboard {
+    display: none;
+    position: absolute;
+    top: 3.5rem;
+    left:13.5rem;
+    width: 11.5rem;
+    height: auto;
+}
+
+#ssd {
+    display: none;
+    position: absolute;
+    top: 4.5rem;
+    left: 26.5rem;
+    width: 10rem;
+    height: auto;
+}
+
+#video-card {
+    display: none;
+    position: absolute;
+    top: 18rem;
+    left: 2.5rem;
+    width: 21.5rem;
+    height: auto;
+}
+
+#power {
+    display: none;
+    position: absolute;
+    top: 33rem;
+    left: 2.5rem;
+    width: 13.5rem;
+    height: auto;
+}
+
+#memory {
+    display: none;
+    position: absolute;
+    top: 30rem;
+    left: 17rem;
+    width: 7rem;
+    height: auto;
+}
+
+#hdd {
+    display: none;
+    position: absolute;
+    top: 29rem;
+    left: 27rem;
+    width: 9.5rem;
+    height: auto;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }

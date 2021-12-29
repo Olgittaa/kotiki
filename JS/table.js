@@ -174,6 +174,7 @@ function add(key, value, price, i, n) {
         }
     }
     chosen[key] = {value, price}
+
     console.log(chosen)
 }
 

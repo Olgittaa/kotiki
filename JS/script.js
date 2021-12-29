@@ -3,7 +3,6 @@ const progressNext = document.getElementById("progress-next");
 const progressPrev = document.getElementById("progress-prev");
 const progressFinish = document.getElementById("progress-finish");
 const colorBar = document.querySelector("#color-bar");
-const pc2d = document.querySelector("#pc2d-img");
 const steps = document.querySelectorAll(".step");
 
 let active = 1;
@@ -12,7 +11,7 @@ const defaultBarLength = colorBarStepLength / 2;
 
 colorBar.style.width = `${defaultBarLength}%`;
 
-const changeForvardScaling = (index) => {
+const changeForwardScaling = (index) => {
   if (index - 1 >= 0) {
     steps[index - 1].classList.remove("scaled");
   }
@@ -41,7 +40,7 @@ const changeColorBarWidth = (idxOfActiveStep) => {
 };
 
 progressNext.addEventListener("click", () => {
-  changeForvardScaling(active);
+  changeForwardScaling(active);
   changeColorBarWidth(active);
 
   active++;
@@ -77,19 +76,11 @@ progressFinish.addEventListener("click", () => {
   all ? window.location.href = "../HTML/order_form.html" : snackBar()
 });
 
-function changePicture(active) {
-  if (active === steps.length) {
-    pc2d.src = "../IMG/2d/PC-block.png";
-  } else {
-    const value = progressValues[active - 1].toLowerCase().replace(" ", "");
-
-    pc2d.src = `../IMG/2d/block_with_${value}.png`;
-  }
-}
 
 const updateProgress = () => {
   fillTable(progressValues[active - 1]);
-  changePicture(active);
+  // changePicture(active);
+  nextPicture(progressValues[active - 1])
 
   document.getElementById("tbody").remove();
 
@@ -125,3 +116,19 @@ function snackBar() {
     x.className = x.className.replace("show", "");
   }, 2000);
 }
+
+function nextPicture(name) {
+  for (let i = 0; i < progressValues.length - 1; i++) {
+    let value = progressValues[i];
+    if (value === name) {
+      document.getElementById(name.replace(" ", "-").toLowerCase()).style = "display:block;animation: pulse 0.8s infinite;"
+      document.getElementById(name.replace(" ", "-").toLowerCase()).src = `../IMG/2d/current/${name}.png`
+    } else if (chosen[value] === null) {
+      document.getElementById(value.replace(" ", "-").toLowerCase()).style = "display:none;"
+    } else {
+      document.getElementById(value.replace(" ", "-").toLowerCase()).style = "display:block"
+      document.getElementById(value.replace(" ", "-").toLowerCase()).src = `../IMG/2d/selected/${value}.png`
+    }
+  }
+}
+

@@ -18,7 +18,7 @@
     />
     <title>Constructor</title>
   </head>
-  <body onload="fillTable('Video card')">
+  <body onload="fillTable('Video card'); nextPicture('Video card')">
   <header id="main-header">
     <div class="nav-container">
       <nav>
@@ -57,8 +57,16 @@
     <section id="place-container">
       <div class="place">
         <div class="pc2d" id="pc2d">
-          <img id="pc2d-img" src="../IMG/2d/block_with_videocard.png" alt="pc">
-
+          <div id="pc2d-img">
+            <img id="block" src="../IMG/2d/block.png" alt="pc">
+            <img id="video-card" src="../IMG/2d/current/Video%20Card.png" alt="video card">
+            <img id="processor" src="../IMG/2d/current/Processor.png" alt="processor">
+            <img id="motherboard" src="../IMG/2d/current/Motherboard.png" alt="motherboard">
+            <img id="memory" src="../IMG/2d/current/Memory.png" alt="memory">
+            <img id="ssd" src="../IMG/2d/current/SSD.png" alt="ssd">
+            <img id="hdd" src="../IMG/2d/current/HDD.png" alt="hdd">
+            <img id="power" src="../IMG/2d/current/Power.png" alt="power">
+          </div>
           <!--for optional components-->
           <div id="optional-container" class="optional-container">
             <div class="optional-card">
