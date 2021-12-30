@@ -27,19 +27,24 @@ function sortTable(property) {
     } else {
         column = 3
         document.getElementById("dropdownbtn").innerText = 'Sort by: Price (high to low)'
+        if (property === 1) {
+            document.getElementById("dropdownbtn").innerText = 'Sort by: Price (low to high)'
+        }
     }
     while (switching) {
         switching = false;
         rows = table.rows;
         for (i = 1; i < (rows.length - 2); i = i + 2) {
             shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[column];
-            y = rows[i + 2].getElementsByTagName("TD")[column];
-            if (property === 1 && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            x = rows[i].getElementsByTagName("TD")[column].innerHTML.toLowerCase();
+            y = rows[i + 2].getElementsByTagName("TD")[column].innerHTML.toLowerCase();
+            if (property === 0 && x < y) {
                 shouldSwitch = true;
-                document.getElementById("dropdownbtn").innerText = 'Sort by: Price (low to high)'
                 break;
-            } else if ((property === 0 || property === 2) && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            }
+            x = parseInt(x.substring(2))
+            y = parseInt(y.substring(2))
+            if ((property === 1 && x > y) || (property === 2 && x < y)) {
                 shouldSwitch = true;
                 break;
             }

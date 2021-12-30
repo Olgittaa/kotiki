@@ -83,6 +83,7 @@ const updateProgress = () => {
   nextPicture(progressValues[active - 1])
 
   document.getElementById("tbody").remove();
+  document.getElementById("dropdownbtn").innerText = 'Sort by:'
 
   steps.forEach((step, i) => {
     if (i < active) {
