@@ -19,12 +19,38 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: white;
 }
 
 .control-btns {
   display: flex;
   flex-direction: column;
+}
+
+#progress-next,
+#progress-prev {
+  color: #5a15a8;
+}
+
+.control-btns span {
+  color: #d7c8e9;
+}
+
+#progress-next:hover .next-ico,
+#progress-prev:hover .prev-ico {
+  transition: 0.2s ease-in-out;
+  color: #460097;
+}
+
+#progress-finish {
+  color: white;
+  background-color: #5d2a99;
+  width: 10rem;
+  border: 0.3rem solid #5d2a99;
+  padding: 0.5rem 0;
+}
+
+#progress-finish:hover {
+  background-color: #380079;
 }
 
 .container {
@@ -124,6 +150,7 @@
 
 #accessories-container {
   display: flex;
+  min-height: 65vh;
   flex-direction: column;
   align-items: center;
   border-radius: 0.7rem;
@@ -204,7 +231,7 @@
 /* Dropdown button on hover & focus */
 .dropbtn:hover,
 .dropbtn:focus {
-  background-color: #460097;
+  background-color: #380079;
   transition: 0.3s ease-in-out;
 }
 
@@ -481,5 +508,43 @@
 
   100% {
     transform: scale(1);
+  }
+}
+
+/*______________________________RESPONSIVE DESIGN_________________________________*/
+
+@media screen and (max-width: 1492px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media screen and (max-width: 1433px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media screen and (max-width: 1194px) {
+  html {
+    font-size: 45%;
+  }
+}
+
+@media screen and (max-width: 1068px) {
+  html {
+    font-size: 40%;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .place {
+    flex-direction: column;
+  }
+
+  .btn,
+  .control-btns {
+    min-height: 10vh;
+    flex-direction: row;
   }
 }
