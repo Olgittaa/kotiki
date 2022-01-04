@@ -23,7 +23,7 @@ if ($password === $conf_password)
       $row = mysqli_fetch_assoc($sql2);
       $_SESSION['user_id'] = $row['id'];
 
-      header("Location: ../HTML/registrationSuccessfull.html");
+      header("Location: ../HTML/registrationSuccessful.html");
     }
   }
 

@@ -75,13 +75,13 @@ $row = mysqli_fetch_assoc($sql);
              </div>
 
              <div class="field">
-             <label for="adress"><b>Adress</b></label>
-             <input type="text" placeholder="Your Adress" name="adress" required>
+             <label for="address"><b>Adress</b></label>
+             <input type="text" placeholder="Your Address" name="address" required>
              </div>
           </div>
           <div class="field">
             <button  onclick="cancel()" >Cancel</button>
-            <button onclick="submite()" type="submite" >Submit</button>
+            <button onclick="submit()" type="submit" >Submit</button>
           </div>
         </div>
       </section>
@@ -90,7 +90,7 @@ $row = mysqli_fetch_assoc($sql);
     function cancel() {
       window.location.href = "./profile.php";
     }
-    function submite() {
+    function submit() {
       window.location.href = "./order_completed.php";
     }
     </script>

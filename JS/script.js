@@ -65,6 +65,7 @@ progressPrev.addEventListener("click", () => {
   updateProgress();
 });
 
+
 progressFinish.addEventListener("click", () => {
   let all = true;
   for (let chosenKey in chosen) {

@@ -50,7 +50,7 @@ $row = mysqli_fetch_assoc($sql);
           <img
             id="success-ico"
             src="../Icons/checked.png"
-            alt="sign that everything is allright"
+            alt="sign that everything is alright"
           />
           <h2 id="reg-message-info">
             Thank's for your order <br />

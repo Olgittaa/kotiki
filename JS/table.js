@@ -128,16 +128,11 @@ function fillTable(name) {
                   </td>
                   <td>${data[i].rating}</td>
                   <td>€ ${data[i].price}</td>`;
-            if (chosen[name] !== null &&chosen[name] !== undefined && data[i].name === chosen[name].value) {
-                table += `<td><button class="add-button" id="add-button-${i}" style="background-color: black; color: white;" ">`
-                if (chosen[name] === "Monitor" || chosen[name] === "Sound Card" || chosen[name] === "Case" || chosen[name] === "Wired Network Adapter" || chosen[name] === "Wireless Network Adapter") {
-                    table += "REMOVE"
-                } else {
-                    table += "ADDED"
-                }
-                table += `</button></td>`
+            table += `<td><button class="add-button" id="add-button-${i}" onclick="add('${name}','${data[i].name}','${data[i].price}', '${i}', '${data.length}')"`
+            if (chosen[name] !== null && chosen[name] !== undefined && data[i].name === chosen[name].value) {
+                table += ` style="background-color: black; color: white;">REMOVE</button></td>`
             } else {
-                table += `<td><button class="add-button" id="add-button-${i}" onclick="add('${name}','${data[i].name}','${data[i].price}', '${i}', '${data.length}')">ADD</button></td>`
+                table += `>ADD</button></td>`
             }
             table += `</tr>
                 <tr id="hidden_row${i}" style="display:none;">
@@ -152,26 +147,27 @@ function fillTable(name) {
 }
 
 function add(key, value, price, i, n) {
-    if (chosen[key] !== null && chosen[key] !== undefined
-        && (key === "Monitor" || key === "Sound Card"
+    if (chosen[key] !== null && chosen[key] !== undefined && chosen[key].value === value) {
+        if (key === "Monitor" || key === "Sound Card"
             || key === "Case" || key === "Wired Network Adapter"
-            || key === "Wireless Network Adapter") && chosen[key].value === value) {
+            || key === "Wireless Network Adapter") {
+            delete chosen[key]
+        } else {
+            chosen[key] = null
 
-        delete chosen[key]
+        }
         document.getElementById("row_" + i).style.border = "none";
         document.getElementById("add-button-" + i).innerText = "ADD"
         document.getElementById("add-button-" + i).style = "none";
+        console.log(chosen)
+        sessionStorage.setItem('chosen', JSON.stringify(chosen));
         return
     }
     for (let j = 0; j < n; j++) {
         if (j == i) {
             document.getElementById("row_" + j).style.border = "2px solid #460097";
             document.getElementById("add-button-" + j).style = "background-color: black; color: white;";
-            if (key === "Monitor" || key === "Sound Card" || key === "Case" || key === "Wired Network Adapter" || key === "Wireless Network Adapter") {
-                document.getElementById("add-button-" + j).innerText = "REMOVE"
-            } else {
-                document.getElementById("add-button-" + j).innerText = "ADDED"
-            }
+            document.getElementById("add-button-" + j).innerText = "REMOVE"
         } else {
             document.getElementById("row_" + j).style.border = "none";
             document.getElementById("add-button-" + j).innerText = "ADD"
@@ -179,10 +175,9 @@ function add(key, value, price, i, n) {
         }
     }
     chosen[key] = {value, price}
-
     console.log(chosen)
+    sessionStorage.setItem('chosen', JSON.stringify(chosen));
 }
-
 
 let all = {
     "Video card": [
