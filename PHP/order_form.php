@@ -3,7 +3,7 @@ session_start();
 include_once "connect.php";
 if(!isset($_SESSION['user_id']))
 {
-header('Location: ../index.html');
+header('Location: ../HTML/order_form.html');
 }
 $sql = mysqli_query($conn, "SELECT * FROM users WHERE id = {$_SESSION['user_id']}");
 $row = mysqli_fetch_assoc($sql);
@@ -49,8 +49,13 @@ $row = mysqli_fetch_assoc($sql);
         <div class="success-container">
           <div class="container2">
             <div class="form">
-              <img class = "order-container" src="../IMG/Computer1.png"  >
-
+                    <div class = "order-container">
+                    <script src="../JS/monitor.js"></script>
+                    </div>
+              <img class = "order-container" src="../IMG/Computer1.png" >
+              <div id="components">
+                  <script src="../JS/order.js"></script>
+              </div>
               <div class="field">
                 <div class="details">
              <label for="name"><b>Named</b>  </label>
@@ -88,7 +93,7 @@ $row = mysqli_fetch_assoc($sql);
     </main>
     <script>
     function cancel() {
-      window.location.href = "./profile.php";
+      window.location.href = "./construct.php";
     }
     function submit() {
       window.location.href = "./order_completed.php";

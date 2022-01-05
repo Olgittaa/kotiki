@@ -65,7 +65,6 @@ progressPrev.addEventListener("click", () => {
   updateProgress();
 });
 
-
 progressFinish.addEventListener("click", () => {
   let all = true;
   for (let chosenKey in chosen) {
@@ -74,7 +73,7 @@ progressFinish.addEventListener("click", () => {
       break
     }
   }
-  all ? window.location.href = "../HTML/order_form.html" : snackBar()
+  all ? window.location.href = "../PHP/order_form.php"  : snackBar()
 });
 
 

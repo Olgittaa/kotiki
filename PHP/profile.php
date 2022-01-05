@@ -32,7 +32,7 @@ $row = mysqli_fetch_assoc($sql);
       <div class="nav-container">
         <nav>
           <div id="logo-container">
-            <h1><a id="home" href="index.html">Computatrum</a></h1>
+            <h1><a id="home" href="profile.php">Computatrum</a></h1>
           </div>
           <ul>
             <li><a href="#philosophy-header">About</a></li>

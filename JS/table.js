@@ -97,6 +97,10 @@ function fillOther(name) {
 }
 
 function fillTable(name) {
+    // let restore = sessionStorage.getItem('chosen');
+    // if (restore !== undefined) {
+    //     chosen = restore
+    // }
     if (name !== "Other") {
         if (name !== "Case" && name !== "Monitor" && name !== "Sound Card" && name !== "Wireless Network Adapter" && name !== "Wired Network Adapter") {
             document.getElementById("pc2d-img").style = "display:block;";

@@ -1,5 +1,5 @@
 <?php
-
+    
 include_once "connect.php";
 session_start();
 
@@ -15,4 +15,15 @@ if(mysqli_num_rows($sql) > 0)
     $_SESSION['user_id'] = $row['id'];
     header("Location: profile.php");
   }
+  else  {
+  echo("<script>alert('Wrong password')</script>");
+      echo("<script>window.location = '../HTML/login.html';</script>");
 }
+}
+else  {
+    echo("<script>alert('Wrong name')</script>");
+      echo("<script>window.location = '../HTML/login.html';</script>");
+    
+}
+
+?>

@@ -1,3 +1,13 @@
+<?php
+session_start();
+include_once "connect.php";
+if(!isset($_SESSION['user_id']))
+{
+header('Location: ../index.html');
+}
+$sql = mysqli_query($conn, "SELECT * FROM users WHERE id = {$_SESSION['user_id']}");
+$row = mysqli_fetch_assoc($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,21 +33,19 @@
     <div class="nav-container">
       <nav>
         <div id="logo-container">
-          <h1><a id="home" href="../">Computatrum</a></h1>
+          <h1><a id="home" href="profile.php">Computatrum</a></h1>
         </div>
         <ul>
-          <li><a href="../">About</a></li>
-          <li><a href="../">Contact</a></li>
-          <li><a href="../HTML/login.html" id="login">Login</a></li>
-          <li>
-            <a href="../HTML/registration.html" id="sign-up">Sign Up</a>
-          </li>
+          <li><a href="#philosophy-header">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a><?php echo "You: ".$row['uname'] ?></a></li>
+          <li><a href ='logout.php'>Log Out</a></li>
         </ul>
       </nav>
     </div>
   </header>
   <main>
-    <div id="progress-bar" class="progress-bar">
+     <div id="progress-bar" class="progress-bar">
       <div id="progress" class="container">
         <div id="bar">
           <div id="color-bar"></div>
@@ -54,7 +62,7 @@
         </ul>
       </div>
     </div>
-    <section id="place-container">
+    <<section id="place-container">
       <div class="place">
         <div class="pc2d" id="pc2d">
           <div id="pc2d-img">
@@ -146,7 +154,7 @@
         <div class="btn">
           <button id="progress-prev">Prev</button>
           <button id="progress-next">Next</button>
-          <button id="progress-finish">Finish</button>
+          <button href="../PHP/order_form.php" id="progress-finish">Finish</button>
         </div>
         <script src="../JS/script.js"></script>
         <script src="../JS/table.js"></script>
