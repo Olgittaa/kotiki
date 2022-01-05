@@ -1,4 +1,4 @@
-chosen = JSON.parse(sessionStorage.getItem('chosen'))
+const chosen = JSON.parse(sessionStorage.getItem('chosen'))
 console.log(chosen)
 let s = "";
 let sum = 0.0;
