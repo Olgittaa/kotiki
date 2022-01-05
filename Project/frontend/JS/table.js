@@ -27,19 +27,24 @@ function sortTable(property) {
     } else {
         column = 3
         document.getElementById("dropdownbtn").innerText = 'Sort by: Price (high to low)'
+        if (property === 1) {
+            document.getElementById("dropdownbtn").innerText = 'Sort by: Price (low to high)'
+        }
     }
     while (switching) {
         switching = false;
         rows = table.rows;
         for (i = 1; i < (rows.length - 2); i = i + 2) {
             shouldSwitch = false;
-            x = rows[i].getElementsByTagName("TD")[column];
-            y = rows[i + 2].getElementsByTagName("TD")[column];
-            if (property === 1 && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            x = rows[i].getElementsByTagName("TD")[column].innerHTML.toLowerCase();
+            y = rows[i + 2].getElementsByTagName("TD")[column].innerHTML.toLowerCase();
+            if (property === 0 && x < y) {
                 shouldSwitch = true;
-                document.getElementById("dropdownbtn").innerText = 'Sort by: Price (low to high)'
                 break;
-            } else if ((property === 0 || property === 2) && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            }
+            x = parseInt(x.substring(2))
+            y = parseInt(y.substring(2))
+            if ((property === 1 && x > y) || (property === 2 && x < y)) {
                 shouldSwitch = true;
                 break;
             }
@@ -81,60 +86,98 @@ function showHideRow(row) {
 function getSpecifications(data) {
     let spec = ''
     for (let [key, value] of Object.entries(data.specifications)) {
-        spec += `<p>${key}: ${value}</p>`
+        spec += `<p style="margin: 1rem">${key}: ${value}</p>`
     }
     return spec
 }
 
-function fillTable(i) {
-    if (i !== 7) {
-        let index = 0;
-        let key;
-        for (key in all) {
-            if (index === i) {
-                break
-            }
-            index++;
-        }
+function fillOther(name) {
+    fillTable(name)
+    document.getElementById("tbody").remove();
+}
 
-        let data = all[key]
-        let table = "<tbody id='body'>";
+function fillTable(name) {
+    if (name !== "Other") {
+        if (name !== "Case" && name !== "Monitor" && name !== "Sound Card" && name !== "Wireless Network Adapter" && name !== "Wired Network Adapter") {
+            document.getElementById("pc2d-img").style = "display:block;";
+            document.getElementById("optional-container").style = "display:none;"
+        } else {
+            document.getElementById("pc2d-img").style = "display:none;";
+            document.getElementById("optional-container").style = "display:block;"
+        }
+        let data = all[name]
+
+        // console.log(data)
+        let table = "<tbody id='tbody'>";
         for (let i = 0; i < data.length; i++) {
-            if (data[i].name === chosen[key]) {
-                table += `<tr id="row_${i}" style="background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(244,244,244,1) 100%)">`
+            if (chosen[name] !== null &&chosen[name] !== undefined && data[i].name === chosen[name].value) {
+                table += `<tr id="row_${i}" style="border: 2px solid #460097;">`
             } else {
                 table += `<tr id="row_${i}">`
             }
-            table += `<td><img class="product-image" src="../IMG/${key}/${data[i].name}.jpeg" alt=""></td>
+            table += `<td><div class="click-zoom">
+                        <label>
+                        <input type="checkbox">
+                        <img class="product-image" src="../IMG/${name}/${data[i].name}.jpeg" alt="">
+                        </label>
+                    </div>
+  
+                        </td>
                   <td>${data[i].name}
                   <button class="info-button"  onclick="showHideRow('hidden_row${i}');">i</button>
                   </td>
                   <td>${data[i].rating}</td>
-                  <td>€ ${data[i].price}</td>
-                  <td><button class="add-button" onclick="add('${key}','${data[i].name}', '${i}', '${data.length}')">+</button></td>
-                  </tr>
-
+                  <td>€ ${data[i].price}</td>`;
+            table += `<td><button class="add-button" id="add-button-${i}" onclick="add('${name}','${data[i].name}','${data[i].price}', '${i}', '${data.length}')"`
+            if (chosen[name] !== null && chosen[name] !== undefined && data[i].name === chosen[name].value) {
+                table += ` style="background-color: black; color: white;">REMOVE</button></td>`
+            } else {
+                table += `>ADD</button></td>`
+            }
+            table += `</tr>
                 <tr id="hidden_row${i}" style="display:none;">
                 <td colspan="5">${getSpecifications(data[i])}</td>
                 </tr>`;
         }
         table += "</tbody>";
         document.getElementById("table-content").innerHTML += table;
+    } else {
+        fillTable("Monitor")
     }
 }
 
-function add(key, value, i, n) {
+function add(key, value, price, i, n) {
+    if (chosen[key] !== null && chosen[key] !== undefined && chosen[key].value === value) {
+        if (key === "Monitor" || key === "Sound Card"
+            || key === "Case" || key === "Wired Network Adapter"
+            || key === "Wireless Network Adapter") {
+            delete chosen[key]
+        } else {
+            chosen[key] = null
+
+        }
+        document.getElementById("row_" + i).style.border = "none";
+        document.getElementById("add-button-" + i).innerText = "ADD"
+        document.getElementById("add-button-" + i).style = "none";
+        console.log(chosen)
+        sessionStorage.setItem('chosen', JSON.stringify(chosen));
+        return
+    }
     for (let j = 0; j < n; j++) {
         if (j == i) {
-            document.getElementById("row_" + j).style.background = "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(224,224,224,1) 100%)";
+            document.getElementById("row_" + j).style.border = "2px solid #460097";
+            document.getElementById("add-button-" + j).style = "background-color: black; color: white;";
+            document.getElementById("add-button-" + j).innerText = "REMOVE"
         } else {
-            document.getElementById("row_" + j).style.background = "transparent";
+            document.getElementById("row_" + j).style.border = "none";
+            document.getElementById("add-button-" + j).innerText = "ADD"
+            document.getElementById("add-button-" + j).style = "none";
         }
     }
-    chosen[key] = value
+    chosen[key] = {value, price}
     console.log(chosen)
-  }
-
+    sessionStorage.setItem('chosen', JSON.stringify(chosen));
+}
 
 let all = {
     "Video card": [
@@ -694,15 +737,181 @@ let all = {
             "rating": 5,
             "price": 233
         }
-    ]
+    ],
+    "Case": [
+        {
+            "name": "Corsair 4000D Airflow",
+            "specifications": {},
+            "rating": 4.8,
+            "price": 94.99
+        }, {
+            "name": "NZXT H510 ATX",
+            "specifications": {},
+            "rating": 4.6,
+            "price": 73.99
+        }, {
+            "name": "Corsair iCUE 4000X",
+            "specifications": {},
+            "rating": 4.8,
+            "price": 114.99
+        }, {
+            "name": "Lian Li PC-O11 Dynamic",
+            "specifications": {},
+            "rating": 4.9,
+            "price": 159.99
+        }, {
+            "name": "Phanteks Eclipse P300",
+            "specifications": {},
+            "rating": 4.4,
+            "price": 59.99
+        }, {
+            "name": "Lian Li O11 Dynamic Mini Snow Edition",
+            "specifications": {},
+            "rating": 4.8,
+            "price": 127.99
+        }, {
+            "name": "Cooler Master MasterBox Q300L",
+            "specifications": {},
+            "rating": 4.2,
+            "price": 59.99
+        }],
+    "Monitor": [
+        {
+            "name": "Asus TUF Gaming VG27AQ",
+            "specifications": {
+                "Screen size": "27.0\"",
+                "Resolution": "2560 x 1440",
+                "Refresh rate": "165 Hz",
+                "Response time (G2G)": "1 ms",
+                "Panel type": "IPS",
+                "Aspect ratio": "16:9"
+            },
+            "rating": 4.8,
+            "price": 338.99
+        }, {
+            "name": "HP OMEN X Emperium 65",
+            "specifications": {
+                "Screen size": "65.0\"",
+                "Resolution": "3840 x 2160",
+                "Refresh rate": "144 Hz",
+                "Response time (G2G)": "4 ms",
+                "Panel type": "VA",
+                "Aspect ratio": "16:9"
+            },
+            "rating": 4.4,
+            "price": 3999.99
+        }, {
+            "name": "Asus VG248QG",
+            "specifications": {
+                "Screen size": "24.0\"",
+                "Resolution": "1920 x 1080",
+                "Refresh rate": "165 Hz",
+                "Response time (G2G)": "0.5 ms",
+                "Panel type": "TN",
+                "Aspect ratio": "16:9"
+            },
+            "rating": 4.9,
+            "price": 189.99
+        },
+        {
+            "name": "MSI Optix G241",
+            "specifications": {
+                "Screen size": "23.8.0\"",
+                "Resolution": "1920 x 1080",
+                "Refresh rate": "144 Hz",
+                "Response time (G2G)": "1 ms",
+                "Panel type": "IPS",
+                "Aspect ratio": "16:9"
+            },
+            "rating": 4.6,
+            "price": 249.89
+        },
+    ],
+    "Sound Card": [
+        {
+            "name": "Creative Labs Sound Blaster AE-9",
+            "specifications": {
+                "Channels": 7.1,
+                "Digital audio": "32-bit",
+                "SNR": "129db",
+                "Sample Rate": "384 kHz"
+            },
+            "rating": 4.5,
+            "price": 332.49
+        }, {
+            "name": "Creative Labs ZXR",
+            "specifications": {
+                "Channels": 5.1,
+                "Digital audio": "24-bit",
+                "SNR": "124db",
+                "Sample Rate": "192 kHz"
+            },
+            "rating": 4.6,
+            "price": 756.03
+        }, {
+            "name": "Asus Xonar SE",
+            "specifications": {
+                "Channels": 5.1,
+                "Digital audio": "24-bit",
+                "SNR": "120db",
+                "Sample Rate": "192 kHz"
+            },
+            "rating": 5.0,
+            "price": 39.99
+        }],
+    "Wired Network Adapter": [
+        {
+            "name": "Asus XG-C100C",
+            "specifications": {
+                "Interface": "PCIe x4",
+                "Ports": "1 x 10 Gbit/s"
+            },
+            "rating": 5.0,
+            "price": 92.99
+        }, {
+            "name": "TP-Link TG-3468",
+            "specifications": {
+                "Interface": "PCIe x1",
+                "Ports": "1 x 1 Gbit/s"
+            },
+            "rating": 4.7,
+            "price": 14.99
+        }],
+    "Wireless Network Adapter": [
+        {
+            "name": "TP-Link Archer T4E",
+            "specifications": {
+                "Interface": "PCIe x1",
+                "Protocol": "Wi-Fi 5"
+            },
+            "rating": 4.6,
+            "price": 24.99
+        }, {
+            "name": "Asus PCE-AX58BT",
+            "specifications": {
+                "Interface": "PCIe x1",
+                "Protocol": "Wi-Fi 6"
+            },
+            "rating": 4.6,
+            "price": 69.98
+        }, {
+            "name": "TP-Link Archer TX50E",
+            "specifications": {
+                "Interface": "PCIe x1",
+                "Protocol": "Wi-Fi 6"
+            },
+            "rating": 4.6,
+            "price": 119.98
+        }]
 }
 
 let chosen = {
-    // "Video card": null,
-    // "Processor": null,
-    // "Motherboard": null,
-    // "Memory": null,
-    // "SSD": null,
-    // "HDD": null,
-    // "Power": null
+    "Video card": null,
+    "Processor": null,
+    "Motherboard": null,
+    "Memory": null,
+    "SSD": null,
+    "HDD": null,
+    "Power": null
 }
+

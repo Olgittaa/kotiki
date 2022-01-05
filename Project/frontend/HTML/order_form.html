@@ -26,52 +26,66 @@
                     <h1><a id="home" href="../">Computatrum</a></h1>
                 </div>
                 <ul>
-                  <li><a href="#philosophy-header">About</a></li>
-                  <li><a href="#contact">Contact</a></li>
-                  <li><a href="./HTML/login.html" id="login">Login</a></li>
-                  <li><a href="./HTML/registration.html" id="sign-up">Sign Up</a></li>
+                    <li><a href="#philosophy-header">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="../HTML/login.html" id="login">Login</a></li>
+                    <li><a href="../HTML/registration.html" id="sign-up">Sign Up</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-      <section id="hero">
-        <div class="success-container">
-          <div class="container2">
+        <section id="hero">
+            <div class="success-container">
+                <div class="container2">
+                    <div class="form">
+                        <img class="order-container" src="../IMG/Computer1.png">
+                        <div id="components">
+                            <script src="../JS/order.js"></script>
+                        </div>
+                        <div class="field">
+                            <div class="details">
+                                <label for="name"><b>Named</b> </label>
+                                <div class=" block-1">
+                                    <label><b>First</b> </label>
+                                    <input type="text" placeholder="First" name="name" required>
+                                </div>
+                                <div class=" block-2">
+                                    <label><b>Second</b> </label>
+                                    <input type="text" placeholder="Second" name="name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="phone"><b>Phone</b></label>
+                            <input type="text" placeholder="Your phone" name="phone" required>
+                        </div>
+                        <div class="field">
+                            <label for="email"><b>Email</b></label>
+                            <input type="text" placeholder="Your Email" name="email" required>
+                        </div>
 
-            <div class = "order-container">
-              <img class = "order-container" src="../IMG/Computer1.png" width="300px" height="100%"border="2px" solid #7d7d7d; >
+                        <div class="field">
+                            <label for="address"><b>Address</b></label>
+                            <input type="text" placeholder="Your Address" name="address" required>
+                        </div>
+                        <div class="field">
+                            <button onclick="cancel()">Cancel</button>
+                            <button onclick="submit()" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-
-             <label for="name"><b>Named</b>  </label>
-             <input type="text" placeholder="First" name="name" required>
-             <input type="text" placeholder="Seccond" name="name" required>
-
-             <br>
-             <br>
-
-             <label for="phone"><b>Phone</b></label>
-             <input type="text" placeholder="Your phone" name="phone" required>
-
-             <br>
-             <br>
-
-             <label for="email"><b>Email</b></label>
-             <input type="text" placeholder="Your Email" name="email" required>
-
-             <br>
-             <br>
-
-             <label for="adress"><b>Adress</b></label>
-             <input type="text" placeholder="Your Adress" name="adress" required>
-          </div>
-          <div class="reg-btn-container">
-            <a href="../index.html"><button id="reg-home-btn">Cancel</button></a>
-            <a href="../HTML/order_completed.html"><button id="reg-login-btn">Submit</button></a>
-          </div>
-        </div>
-      </section>
+        </section>
     </main>
+    <script>
+        function cancel() {
+            window.location.href = "../HTML/constructor.html";
+        }
+
+        function submit() {
+            window.location.href = "./order_completed.html";
+        }
+    </script>
   </body>
 </html>

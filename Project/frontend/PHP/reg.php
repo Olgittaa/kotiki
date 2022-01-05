@@ -17,7 +17,7 @@ if ($password === $conf_password)
   {
 
     $sql1 = mysqli_query($conn, "INSERT INTO users (uname, email, first_name,	second_name,	phone,	password) VALUES ('{$uname}', '{$email}','{$first_name}','{$second_name}','{$phone}','{$password}')");
-    if (sql1)
+    if ($sql1)
     {
       $sql2 = mysqli_query($conn, "SELECT * FROM users WHERE uname= '{$uname}'");
       $row = mysqli_fetch_assoc($sql2);
@@ -26,5 +26,9 @@ if ($password === $conf_password)
       header("Location: ../HTML/registrationSuccessfull.html");
     }
   }
+  
 
+  }
+  else {
+  header("Location: ../HTML/registration.html");
   }

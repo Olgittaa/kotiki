@@ -12,8 +12,8 @@
       rel="stylesheet"
     >
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow&display=swap"
-      rel="stylesheet"/>
+            href="https://fonts.googleapis.com/css2?family=Barlow&display=swap"
+            rel="stylesheet"/>
     <link rel="icon" href="../Icons/gamepad.png"/>
     <title>Login</title>
   </head>
@@ -34,24 +34,32 @@
       </div>
     </header>
     <main>
-      <form action = '../PHP/login.php' method="POST">
-      <section id="hero">
-        <div class="success-container">
-          <div class="container2">
-             <label for="uname"><b>Username</b></label>
-             <input type="text" placeholder="Enter Username" name = 'uname' id="uname" required>
-             <br>
-             <br>
-             <label for="pwd"><b>Password</b></label>
-             <input type="password" placeholder="Enter Password" name = 'password' id="pwd" required>
+   
+      <form action='../PHP/login.php' method="POST">
+        <section id="hero">
+          <div class="success-container">
+            <div class="container2">
+              <div class="form">
+                <h2 style="text-align: center;">Login</h2>
+                <br>
+                <div class="field">
+                  <label for="uname"><b>Login</b></label>
+                  <input type="text" placeholder="Enter Username" name='uname' id="uname" required>
+                </div>
+                <div class="field">
+                  <label for="pwd"><b>Password</b></label>
+                  <input type="password" placeholder="Enter Password" name='password' id="pwd" required>
+                </div>
+                <div class="field">
+                  <button onclick="cancel()">Cancel</button>
+                  <button type="submit" value="Login" onClick="login()">Login</button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="reg-btn-container">
-            <a href="../"><button id="reg-home-btn">Home</button></a>
-            <input type="submit" value="Login" id="reg-home-btn" onClick="login()" /></td>
-          </div>
-        </div>
-      </section>
-    </form>
+        </section>
+      </form>
     </main>
+   
   </body>
 </html>

@@ -15,7 +15,7 @@ let cancelBtn= document.querySelector(".cancel");
 
 
 //email id expression code
-var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])/;
 var letters = /^[A-Za-z]+$/;
 var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
@@ -66,6 +66,7 @@ alert ('Upper case, Lower case, Special character and Numeric letter are require
 else if(pwd != cpwd)
 {
 alert ('Password not Matched');
+window.location = "../HTML/registration.html";
 }
 else if(document.getElementById("t7").value.length < 6)
 {

@@ -3,7 +3,7 @@ session_start();
 include_once "connect.php";
 if(!isset($_SESSION['user_id']))
 {
-header('Location: ../index.html');
+header('Location: ../HTML/order_form.html');
 }
 $sql = mysqli_query($conn, "SELECT * FROM users WHERE id = {$_SESSION['user_id']}");
 $row = mysqli_fetch_assoc($sql);
@@ -48,40 +48,56 @@ $row = mysqli_fetch_assoc($sql);
       <section id="hero">
         <div class="success-container">
           <div class="container2">
-
-            <div class = "order-container">
-              <img class = "order-container" src="../IMG/Computer1.png" width="300px" height="100%"border="2px" solid #7d7d7d; >
-            </div>
-
-
+            <div class="form">
+                    <div class = "order-container">
+                    <script src="../JS/monitor.js"></script>
+                    </div>
+              <img class = "order-container" src="../IMG/Computer1.png" >
+              <div id="components">
+                  <script src="../JS/order.js"></script>
+              </div>
+              <div class="field">
+                <div class="details">
              <label for="name"><b>Named</b>  </label>
+              <div class=" block-1"
+                <label ><b>First</b>  </label>
              <input value="<?php echo htmlspecialchars($row['first_name']) ?>"  type="text" placeholder="First" name="name" required>
+             </div>
+             <div class=" block-2"
+             <label ><b>Second</b>  </label>
              <input value="<?php echo htmlspecialchars($row['second_name']) ?>" type="text" placeholder="Seccond" name="name" required>
-
-             <br>
-             <br>
-
+             </div>
+           </div>
+          </div>
+              <div class="field">
              <label  for="phone"><b>Phone</b></label>
              <input value="<?php echo htmlspecialchars($row['phone']) ?>" type="text" placeholder="Your phone" name="phone" required>
+              </div>
 
-             <br>
-             <br>
-
+              <div class="field">
              <label for="email"><b>Email</b></label>
              <input value="<?php echo htmlspecialchars($row['email']) ?>" type="text" placeholder="Your Email" name="email" required>
+             </div>
 
-             <br>
-             <br>
-
-             <label for="adress"><b>Adress</b></label>
-             <input type="text" placeholder="Your Adress" name="adress" required>
+             <div class="field">
+             <label for="address"><b>Adress</b></label>
+             <input type="text" placeholder="Your Address" name="address" required>
+             </div>
           </div>
-          <div class="reg-btn-container">
-            <a href="../PHP/profile.php"><button id="reg-home-btn">Cancel</button></a>
-            <a href="order_completed.php"><button id="reg-login-btn">Submit</button></a>
+          <div class="field">
+            <button  onclick="cancel()" >Cancel</button>
+            <button onclick="submit()" type="submit" >Submit</button>
           </div>
         </div>
       </section>
     </main>
+    <script>
+    function cancel() {
+      window.location.href = "./construct.php";
+    }
+    function submit() {
+      window.location.href = "./order_completed.php";
+    }
+    </script>
   </body>
 </html>
