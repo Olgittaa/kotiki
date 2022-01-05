@@ -39,10 +39,10 @@ $row = mysqli_fetch_assoc($sql);
             <li><a href="#contact">Contact</a></li>
             <li><a><?php echo "You: ".$row['uname'] ?></a></li>
             <li><a href = 'logout.php'>Log Out</a></li>
-          <!--
-            <li><a href="../HTML/login.html" id="login">Login</a></li>
-            <li><a href="../HTML/registration.html" id="sign-up">Sign Up</a></li>
-          -->
+//           <!--
+//             <li><a href="../HTML/login.html" id="login">Login</a></li>
+//             <li><a href="../HTML/registration.html" id="sign-up">Sign Up</a></li>
+//           -->
           </ul>
         </nav>
       </div>

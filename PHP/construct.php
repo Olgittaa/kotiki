@@ -21,7 +21,7 @@ $row = mysqli_fetch_assoc($sql);
     <link
       href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap"
       rel="stylesheet"
-    >
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow&display=swap"
       rel="stylesheet"
@@ -75,7 +75,7 @@ $row = mysqli_fetch_assoc($sql);
             <img id="hdd" src="../IMG/2d/current/HDD.png" alt="hdd">
             <img id="power" src="../IMG/2d/current/Power.png" alt="power">
           </div>
-          <!--for optional components-->
+//           <!--for optional components-->
           <div id="optional-container" class="optional-container">
             <div class="optional-card">
               <div class="optional-product">

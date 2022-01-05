@@ -58,7 +58,7 @@ $row = mysqli_fetch_assoc($sql);
               </div>
               <div class="field">
                 <div class="details">
-             <label for="name"><b>Named</b>  </label>
+             <label for="name"><b>Name</b>  </label>
               <div class=" block-1"
                 <label ><b>First</b>  </label>
              <input value="<?php echo htmlspecialchars($row['first_name']) ?>"  type="text" placeholder="First" name="name" required>
@@ -80,7 +80,7 @@ $row = mysqli_fetch_assoc($sql);
              </div>
 
              <div class="field">
-             <label for="address"><b>Adress</b></label>
+             <label for="address"><b>Address</b></label>
              <input type="text" placeholder="Your Address" name="address" required>
              </div>
           </div>

@@ -21,7 +21,7 @@ $row = mysqli_fetch_assoc($sql);
     <link
       href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap"
       rel="stylesheet"
-    >
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow&display=swap"
       rel="stylesheet"
@@ -58,7 +58,7 @@ $row = mysqli_fetch_assoc($sql);
           </h2>
           <div class="reg-btn-container">
             <a href="../PHP/profile.php"><button  id="reg-home-btn">Home</button></a>
-<!--            <a href=""><button id="reg-login-btn">Login</button></a>-->
+// <!--            <a href=""><button id="reg-login-btn">Login</button></a>-->
           </div>
         </div>
       </section>
