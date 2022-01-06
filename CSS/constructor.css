@@ -595,6 +595,11 @@
   .progress-bar-ul li:before {
     color: #000000;
   }
+
+  li.scaled {
+    color: #000000;
+    z-index: 1;
+  }
 }
 
 @media screen and (max-width: 431px) {

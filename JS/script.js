@@ -69,21 +69,20 @@ progressFinish.addEventListener("click", () => {
   let all = true;
   for (let chosenKey in chosen) {
     if (chosen[chosenKey] == null) {
-      all = false
-      break
+      all = false;
+      break;
     }
   }
-  all ? window.location.href = "../PHP/order_form.php"  : snackBar()
+  all ? (window.location.href = "../PHP/order_form.php") : snackBar();
 });
-
 
 const updateProgress = () => {
   fillTable(progressValues[active - 1]);
   // changePicture(active);
-  nextPicture(progressValues[active - 1])
+  nextPicture(progressValues[active - 1]);
 
   document.getElementById("tbody").remove();
-  document.getElementById("dropdownbtn").innerText = 'Sort by:'
+  document.getElementById("dropdownbtn").innerText = "Sort by:";
 
   steps.forEach((step, i) => {
     if (i < active) {
@@ -106,8 +105,15 @@ const updateProgress = () => {
 };
 
 let progressValues = [
-  "Video card", "Processor", "Motherboard", "Memory", "SSD", "HDD", "Power", "Other"];
-
+  "Video card",
+  "Processor",
+  "Motherboard",
+  "Memory",
+  "SSD",
+  "HDD",
+  "Power",
+  "Other",
+];
 
 function snackBar() {
   var x = document.getElementById("snackbar");
@@ -122,14 +128,20 @@ function nextPicture(name) {
   for (let i = 0; i < progressValues.length - 1; i++) {
     let value = progressValues[i];
     if (value === name) {
-      document.getElementById(name.replace(" ", "-").toLowerCase()).style = "display:block;animation: pulse 0.8s infinite;"
-      document.getElementById(name.replace(" ", "-").toLowerCase()).src = `../IMG/2d/current/${name}.png`
+      document.getElementById(name.replace(" ", "-").toLowerCase()).style =
+        "display:block;animation: pulse 0.8s infinite;";
+      document.getElementById(
+        name.replace(" ", "-").toLowerCase()
+      ).src = `../IMG/2d/current/${name}.png`;
     } else if (chosen[value] === null) {
-      document.getElementById(value.replace(" ", "-").toLowerCase()).style = "display:none;"
+      document.getElementById(value.replace(" ", "-").toLowerCase()).style =
+        "display:none;";
     } else {
-      document.getElementById(value.replace(" ", "-").toLowerCase()).style = "display:block"
-      document.getElementById(value.replace(" ", "-").toLowerCase()).src = `../IMG/2d/selected/${value}.png`
+      document.getElementById(value.replace(" ", "-").toLowerCase()).style =
+        "display:block";
+      document.getElementById(
+        value.replace(" ", "-").toLowerCase()
+      ).src = `../IMG/2d/selected/${value}.png`;
     }
   }
 }
-
