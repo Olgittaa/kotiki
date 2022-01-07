@@ -60,6 +60,18 @@
   position: relative;
 }
 
+.optional-button img {
+  margin-right: 1rem;
+}
+
+.optional-button{
+  border: 0.1rem solid black;
+  padding: 1.5rem 2rem 2rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
 /*__________________________________STEP PROGRESS BAR STYLING ___________________________*/
 
 .progress-bar-ul {
