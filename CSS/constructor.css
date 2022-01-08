@@ -21,9 +21,49 @@
   flex-wrap: wrap;
 }
 
+.component-info-button {
+  border-radius: 50%;
+  border: 0.1rem solid #5d2a99;
+  color: #5d2a99;
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+  font-size: 65%;
+}
+
+dialog {
+  font-size: 200%;
+  padding: 1.5rem;
+  border: 0.2rem solid #000000;
+  max-width: 60%;
+
+  position: fixed;
+  top: 15%;
+  left: 50%;
+
+  margin-left: -30%;
+
+  background: white;
+}
+
+dialog button {
+  border: 0.1rem solid #000000;
+
+  margin-top: 1.5rem;
+  margin-left: -5rem;
+  padding: 1rem 2rem;
+  position: relative;
+  left: 50%;
+}
+
 .control-btns {
   display: flex;
   flex-direction: column;
+}
+
+.other {
+  text-transform: lowercase;
+  margin-top: 1rem;
 }
 
 #progress-next,
@@ -604,6 +644,10 @@
     color: white;
   }
 
+  .progress-bar-ul li button {
+    visibility: hidden;
+  }
+
   .progress-bar-ul li:before {
     color: #000000;
   }
@@ -611,6 +655,10 @@
   li.scaled {
     color: #000000;
     z-index: 1;
+  }
+
+  li.scaled button{
+    visibility: visible;
   }
 }
 

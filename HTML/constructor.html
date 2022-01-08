@@ -43,14 +43,30 @@
             <div id="color-bar"></div>
           </div>
           <ul id="progress-num" class="progress-bar-ul">
-            <li class="step active scaled">Video Card</li>
-            <li class="step">Processor</li>
-            <li class="step">Motherboard</li>
-            <li class="step">Memory</li>
-            <li class="step">SSD</li>
-            <li class="step">HDD</li>
-            <li class="step">Power</li>
-            <li class="step">Other</li>
+            <li class="step active scaled">Video Card
+              <button class="component-info-button" onclick="componentInfo('Video Card')">i</button>
+            </li>
+            <li class="step">Processor
+              <button class="component-info-button" onclick="componentInfo('Processor')">i</button>
+            </li>
+            <li class="step">Motherboard
+              <button class="component-info-button" onclick="componentInfo('Motherboard')">i</button>
+            </li>
+            <li class="step">Memory
+              <button class="component-info-button" onclick="componentInfo('Memory')">i</button>
+            </li>
+            <li class="step">SSD
+              <button class="component-info-button" onclick="componentInfo('SSD')">i</button>
+            </li>
+            <li class="step">HDD
+              <button class="component-info-button" onclick="componentInfo('HDD')">i</button>
+            </li>
+            <li class="step">Power
+              <button class="component-info-button" onclick="componentInfo('Power')">i</button>
+            </li>
+            <li class="step">Other
+              <p class="other"> (optional)</p>
+            </li>
           </ul>
         </div>
       </div>
@@ -97,6 +113,7 @@
                 <div class="optional-product">
                   <button class="optional-button" onclick="fillOther('Sound Card')">
                     <img src="../IMG/2d/sound-card.png" alt=""/>Sound Card
+                    <button class="component-info-button" onclick="componentInfo('Sound Card')">i</button>
                   </button>
                 </div>
               </div>
@@ -105,6 +122,7 @@
                 <div class="optional-product">
                   <button class="optional-button" onclick="fillOther('Wired Network Adapter')">
                     <img src="../IMG/2d/network.png" alt=""/>Wired Network Adapter
+                    <button class="component-info-button" onclick="componentInfo('Wired Network Adapter')">i</button>
                   </button>
                 </div>
               </div>
@@ -113,6 +131,7 @@
                 <div class="optional-product">
                   <button class="optional-button" onclick="fillOther('Wireless Network Adapter')">
                     <img src="../IMG/2d/wireless.png" alt=""/>Wireless Network Adapter
+                    <button class="component-info-button" onclick="componentInfo('Wireless Network Adapter')">i</button>
                   </button>
                 </div>
               </div>
@@ -177,9 +196,19 @@
           <div id="snackbar">Choose all required components</div>
         </div>
       </section>
+
+
     </main>
+
+    <dialog id="dialog">
+      <p id="description">
+
+      </p>
+      <button id="hide">Close</button>
+    </dialog>
 
     <script src="../JS/script.js"></script>
     <script src="../JS/table.js"></script>
+
   </body>
 </html>
