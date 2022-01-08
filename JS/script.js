@@ -163,15 +163,15 @@ function componentInfo(component) {
         'The terms processor, central processing unit (CPU) and microprocessor are commonly linked as synonyms. Most people use the word “processor” interchangeably with the term “CPU” nowadays, it is technically not correct since the CPU is just one of the processors inside a personal computer (PC).';
   } else if (component === 'Motherboard') {
     desc.innerText = 'A motherboard is a computer’s main circuit board, and it includes the following attached to a fixed planar surface:\n' +
-        'Input/output ports\n' +
-        'Peripheral connections\n' +
-        'PCI expansion slots\n' +
-        'Bus and power connectors\n' +
-        'Heat sinks and mounting points for fans and major components, including the central processing unit (CPU) and optional coprocessors\n' +
-        'Supporting chipset for CPU, bus and external components\n' +
-        'BIOS\n' +
-        'Memory sockets for RAM, ROM and cache\n' +
-        'Interconnecting circuitry\n' +
+        '● Input/output ports\n' +
+        '● Peripheral connections\n' +
+        '● PCI expansion slots\n' +
+        '● Bus and power connectors\n' +
+        '● Heat sinks and mounting points for fans and major components, including the central processing unit (CPU) and optional coprocessors\n' +
+        '● Supporting chipset for CPU, bus and external components\n' +
+        '● BIOS\n' +
+        '● Memory sockets for RAM, ROM and cache\n' +
+        '● Interconnecting circuitry\n' +
         'Additionally, daughterboards and mezzanine cards, installed on a second level, may be plugged into the motherboard. A daughterboard may be the actual motherboard and/or card or board plugged into the motherboard.\n' +
         '\n' +
         'The motherboard is also referred to as the main board (mobo), system board or planar board. Apple computers refer to the motherboard as the logic board.'
